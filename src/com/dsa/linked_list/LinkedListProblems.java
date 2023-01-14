@@ -130,7 +130,34 @@ public class LinkedListProblems {
 		return dummy.next;
 	} 
 	
-	
+	/*
+	 * PROBLEM 04:
+	 * 
+	 * you are given a array of k linked lists, each linked-list is sorted in ascending order.
+	 * Merge all the linked-lists into one sorted linked-list and return it.
+	 * 
+	 * steps:
+	 * 
+	 * 1. 	Create a main function that takes in the array of LL
+	 * 2. 	Inside the main function use a divide and conquer approach to recursively
+	 * 		divide the array into smaller sub-arrays.
+	 * 3. 	Use a helper function that takes in the array of LL and the start and end indices
+	 * 		of the sub-array.
+	 * 4. 	The helper function recursively divides the sub array of linked lists into two 
+	 * 		equal parts and recursively call itself on both parts.
+	 * 5. 	Then merge the two resulting LL using a merge function and return the head of the List.
+	 * 
+	 * Time Complexity(order of growth):
+	 * 		helper function : O(log k)
+	 * 		merge function : O(n)
+	 * 
+	 * overall time complexity : O(n * log k)
+	 * 
+	 * Space Complexity:
+	 * 		helper function : O(log k)
+	 * 		at each level of recursion creates a new stack frame which consume O(log k) space
+	 * 
+	 * */
 	
 	public static ListNode mergeKLists(ListNode[] lists) {
 		return mergeKListsHelper(lists, 0, lists.length - 1);
