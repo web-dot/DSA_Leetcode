@@ -210,6 +210,25 @@ public class LinkedListProblems {
 	}
 	
 	
+	/*
+	 * PROBLEM 05:
+	 * 
+	 * Given a linked list, swap every two adjacent and return its head.
+	 * You must solve the problem without modifying the lists nodes(i.e only nodes themselves
+	 * may be changed)
+	 * 
+	 * example:
+	 * 
+	 * 1->2->3->4
+	 * 
+	 * 2->1->4->3
+	 * 
+	 * 
+	 * */
+	
+	
+	
+	
 	public static void main(String[] args) {
 		
 		ListNode l1 = new ListNode(1);
