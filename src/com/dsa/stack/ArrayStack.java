@@ -20,10 +20,21 @@ public class ArrayStack {
 			System.out.println("stack is empty");
 		}
 		else {
-			int topItem = items[top-1];
-			top--;
+			int topItem = items[top-1]; // getting the value of top
+			items[top - 1] = 0; // setting the value of top to default
+			top--;				//
 			return topItem;
 		}
 		return 0;
+	}
+	
+	public int top() {
+		if(top == 0) {
+			System.out.println("stack is empty");
+		}
+		else {
+			return items[top - 1];
+		}
+		return -1;
 	}
 }

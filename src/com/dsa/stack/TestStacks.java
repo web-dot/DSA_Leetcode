@@ -12,11 +12,12 @@ public class TestStacks {
 		//s1.push(40);
 		
 		int x = s1.pop();
-		System.out.println(x);
+		//System.out.println(x);
 		int y = s1.pop();
-		System.out.println(y);
+		//System.out.println(y);
 		int z = s1.pop();
-		System.out.println(z);
-		int k = s1.pop();
+		//System.out.println(z);
+		//int k = s1.pop();
+		System.out.println(s1.top());
 	}
 }
