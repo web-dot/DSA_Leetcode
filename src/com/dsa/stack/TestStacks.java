@@ -11,15 +11,15 @@ public class TestStacks {
 		theStackX.push(60);
 		theStackX.push(80);
 		
-		while(!theStackX.isEmpty()) {
-			long value = theStackX.pop();
-			System.out.println(value);
-		}
+//		while(!theStackX.isEmpty()) {
+//			long value = theStackX.pop();
+//			System.out.println(value);
+//		}
 		
 		
 		/*reverse a word*/
 		
-		String input = "Hello";
+		String input = "progrAmming";
 		String output = "";
 		int stackSize = input.length();
 		StackForChar stack = new StackForChar(stackSize);
@@ -33,8 +33,6 @@ public class TestStacks {
 			char ch = stack.pop();
 			output = output + ch;
 		}
-		
-		
 		System.out.println(output);
 		
 		
