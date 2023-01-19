@@ -42,5 +42,11 @@ public class TestStacks {
 		
 		
 		
+		
+		while(!theStackX.isEmpty()) {
+			long value = theStackX.pop();
+			System.out.println(value);
+		}
+		
 	}
 }
