@@ -71,5 +71,41 @@ public class StackProblems {
 		}
 		System.out.println(output);
 		*/
+		
+		/*Delimiter matching test*/
+		
+		StackOfDelm delmStack = new StackOfDelm();
+		
+		String input = "(){]";
+		int length = input.length();
+		
+		for(int i=0; i<input.length(); i++) {
+			char c = input.charAt(i);
+			switch(c)
+			{
+			case '{':
+			case '(':
+			case '[':
+				delmStack.push(c);
+				break;
+				
+			case '}':
+			case ')':
+			case ']':
+				if(!delmStack.isEmpty()) {
+					char ch = delmStack.pop();
+					if(c == ')' && ch != '(' || c == '}' && ch != '{' || c == ']' && ch != '[') {
+						System.out.println("error");
+					}
+				}
+			}
+			
+			
+		}
+		
+		
+		
+		
+		
 	}
 }
