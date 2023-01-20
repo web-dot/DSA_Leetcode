@@ -95,7 +95,7 @@ public class StackProblems {
 				if(!delmStack.isEmpty()) {
 					char ch = delmStack.pop();
 					if(c == ')' && ch != '(' || c == '}' && ch != '{' || c == ']' && ch != '[') {
-						System.out.println("error");
+						System.out.println("false");
 					}
 				}
 			}
