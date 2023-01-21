@@ -76,9 +76,9 @@ public class StackProblems {
 		
 		StackOfDelm delmStack = new StackOfDelm();
 		
-		String input = "(){]";
+		String input = "))";
 		int length = input.length();
-		
+		boolean val = true;
 		for(int i=0; i<input.length(); i++) {
 			char c = input.charAt(i);
 			switch(c)
@@ -92,20 +92,23 @@ public class StackProblems {
 			case '}':
 			case ')':
 			case ']':
+				if(delmStack.isEmpty()) {
+					val = false;
+				}
 				if(!delmStack.isEmpty()) {
 					char ch = delmStack.pop();
 					if(c == ')' && ch != '(' || c == '}' && ch != '{' || c == ']' && ch != '[') {
-						System.out.println("false");
+						val = false;
 					}
 				}
 			}
 			
 			
 		}
-		
-		
-		
-		
-		
+		//System.out.println("true");
+		if(!delmStack.isEmpty()) {
+			val = false;
+		}
+		System.out.println(val);
 	}
 }
