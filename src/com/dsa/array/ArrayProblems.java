@@ -7,6 +7,8 @@ public class ArrayProblems {
 	
 	
 	/*
+	 * EASY -->
+	 * 
 	 * PROBLEM 1:
 	 * 
 	 * given an integer arr nums of length n, create a array ans of length
@@ -34,12 +36,49 @@ public class ArrayProblems {
 		return ans;
 	}
 	
+	
+	/*
+	 * PROBLEM 2:
+	 * 
+	 * there is a programming language with only one variable X and four 
+	 * operations --X, X--, ++X, X++,
+	 * given a array of string operations, return the final value of X  
+	 * 
+	 * */
+	public static int finalValueAfterOperations(String[] operations) {
+		int var = 0;
+		for(int i=0; i<operations.length; i++) {
+			switch(operations[i])
+			{
+			case "++X":
+				var += 1;
+				break;
+			case "X++":
+				var +=1;
+				break;
+			case "--X":
+				var -=1;
+				break;
+			case "X--":
+				var -=1;
+				break;
+			}
+		}
+		return var;
+	}
+	
+	
 	public static void main(String[] args) {
 		
 		
+		String[] operations = {"++X","++X","X--"};
+		System.err.println(finalValueAfterOperations(operations));
+		
+		
+		/*
 		int[] nums = {1, 2, 1};
 		int[] ans = getConcatenation(nums);
 		System.err.println(Arrays.toString(ans));
-		
+		*/
 	}
 }
