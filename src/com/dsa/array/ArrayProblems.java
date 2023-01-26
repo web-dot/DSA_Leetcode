@@ -69,7 +69,7 @@ public class ArrayProblems {
 	
 	
 	/*
-	 * PROBLEM 3:
+	 * PROBLEM 3(Array 1470):
 	 * 
 	 * given the array nums consisting of 2n elements in the form [x1,x2,..,xn,y1,y2,..,yn].
 	 * return the array of the form [x1,y1,x2,y2,..,xn,yn]
@@ -95,7 +95,7 @@ public class ArrayProblems {
 	public static int[] shuffle(int[] nums, int n) {
 		int[] base = new int[nums.length];
 		int j = 0;
-		for(int i=0; i<nums.length/2; i++) {
+		for(int i=0; i<n; i++) {
 			base[j] = nums[i];
 			j+=2;
 		}
@@ -107,17 +107,42 @@ public class ArrayProblems {
 		return base;
 	}
 	
+	/*
+	 * PROBLEM 4(Array 1480) : Running sum of 1d Array
+	 * 
+	 * given an array nums return the running sum.
+	 * 
+	 * example:
+	 * in: [1,2,3,4]
+	 * out: [1,3,6,10]
+	 * 
+	 * */
+	public static int[] runningSum(int[] nums) {
+		int lastSum = 0;
+		int k = 0;
+		for(int i=1; i<nums.length; i++) {
+			lastSum = nums[i];
+			lastSum = lastSum + nums[k];
+			nums[i] = lastSum;
+			k++;
+		}
+		return nums;
+	}
+	
 	public static void main(String[] args) {
 		
+		int[] nums = {3,1,2,10,1}; //[3,4,6,16,17]
+		System.out.println(Arrays.toString(runningSum(nums)));
+		
+		
+		/*
 		int[] arr2 = {1,2,3,4,4,3,2,1}; // works
 		int[] arr = {2,5,1,3,4,7}; // works
  		System.out.println(Arrays.toString(shuffle(arr2, 4)));
-		
-		/*
+
 		String[] operations = {"++X","++X","X--"};
 		System.err.println(finalValueAfterOperations(operations));
-		*
-		/*
+	
 		int[] nums = {1, 2, 1};
 		int[] ans = getConcatenation(nums);
 		System.err.println(Arrays.toString(ans));
