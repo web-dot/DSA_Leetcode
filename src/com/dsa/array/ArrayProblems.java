@@ -129,10 +129,35 @@ public class ArrayProblems {
 		return nums;
 	}
 	
+	
+	/*
+	 * PROBLEM 5: ARRAY 1512
+	 * Good Pairs
+	 * 
+	 * Accepted
+	 * 
+	 * running time = 1ms beats 87.2%
+	 * mem = 9 mb beats 72%
+	 * 
+	 * */
+	public static int numIdenticalPairs(int[] nums) {
+		int goodPairs = 0;
+		for(int i=0; i<nums.length; i++) {
+			for(int j=i+1; j<nums.length; j++) {
+				if(nums[i]==nums[j] && i < j) {
+					goodPairs++;
+				}
+			}
+		}
+		return goodPairs;
+	}
+	
+	
 	public static void main(String[] args) {
 		
-		int[] nums = {3,1,2,10,1}; //[3,4,6,16,17]
-		System.out.println(Arrays.toString(runningSum(nums)));
+		int[] nums = {1,2,3,1,1,3}; //[3,4,6,16,17]
+		int n = numIdenticalPairs(nums);
+		System.out.println(n);
 		
 		
 		/*
