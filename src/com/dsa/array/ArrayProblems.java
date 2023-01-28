@@ -152,15 +152,68 @@ public class ArrayProblems {
 		return goodPairs;
 	}
 	
+	/*
+	 * PROBLEM 6: Array 1672 : Richest Wealth Customer
+	 * */
+	public static int maxWealth(int[][] accounts) {
+		int[] cusWealths = new int[accounts.length];
+		int maxWealth = 0;
+		for(int i=0; i<accounts.length; i++) {
+			int wealth = 0;
+			for(int j=0; j<accounts[i].length; j++) {
+				wealth += accounts[i][j];
+			}
+			cusWealths[i] = wealth;
+		}
+		for(int w : cusWealths) {
+			if(w > maxWealth) {
+				maxWealth = w;
+			}
+		}
+		return maxWealth;
+	}
+	
+	/*REFACTOR*/
+	public static int maxWealthRE(int[][] accounts) {
+		int maxWealth = 0;
+		for(int i=0; i<accounts.length; i++) {
+			int sum = 0;
+			for(int j=0; j<accounts[i].length; j++) {
+				sum = sum + accounts[i][j];
+			}
+			if(sum > maxWealth) {
+				maxWealth = sum;
+			}
+		}
+		return maxWealth;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public static void main(String[] args) {
+		int[][] nums = new int[3][];
+		int[] arr1 = {1,2,7};
+		int[] arr2 = {3,4,5};
+		int[] arr3 = {5,6,1};
 		
+		nums[0] = arr1;
+		nums[1] = arr2;
+		nums[2] = arr3;
+		
+		int max = maxWealth(nums);
+		System.out.println(max);
+		
+		/*
 		int[] nums = {1,2,3,1,1,3}; //[3,4,6,16,17]
 		int n = numIdenticalPairs(nums);
 		System.out.println(n);
 		
-		
-		/*
 		int[] arr2 = {1,2,3,4,4,3,2,1}; // works
 		int[] arr = {2,5,1,3,4,7}; // works
  		System.out.println(Arrays.toString(shuffle(arr2, 4)));
