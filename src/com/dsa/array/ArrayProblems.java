@@ -154,6 +154,9 @@ public class ArrayProblems {
 	
 	/*
 	 * PROBLEM 6: Array 1672 : Richest Wealth Customer
+	 * 
+	 * runtime : beats 38%
+	 * memory : beats 17%
 	 * */
 	public static int maxWealth(int[][] accounts) {
 		int[] cusWealths = new int[accounts.length];
@@ -173,7 +176,10 @@ public class ArrayProblems {
 		return maxWealth;
 	}
 	
-	/*REFACTOR*/
+	/*REFACTOR
+	 * 
+	 * Order of growth
+	 * */
 	public static int maxWealthRE(int[][] accounts) {
 		int maxWealth = 0;
 		for(int i=0; i<accounts.length; i++) {
