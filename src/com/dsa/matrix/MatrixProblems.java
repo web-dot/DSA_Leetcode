@@ -53,14 +53,7 @@ public class MatrixProblems {
 //		grid[2] = arr8;
 //		grid[3] = arr9;
 		
-		
 		int[][] nums = largestLocal(grid);
-		for(int i=0; i<nums.length; i++) {
-			for(int j=0; j<nums[i].length; j++) {
-				System.out.print(nums[i][j]);
-			}
-			System.out.println();
-		}
 		
 	}
 

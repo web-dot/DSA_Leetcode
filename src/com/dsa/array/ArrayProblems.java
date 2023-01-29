@@ -176,10 +176,7 @@ public class ArrayProblems {
 		return maxWealth;
 	}
 	
-	/*REFACTOR
-	 * 
-	 * Order of growth
-	 * */
+	
 	public static int maxWealthRE(int[][] accounts) {
 		int maxWealth = 0;
 		for(int i=0; i<accounts.length; i++) {
@@ -195,14 +192,46 @@ public class ArrayProblems {
 	}
 	
 	
-	
-	
-	
-	
-	
+	/*
+	 * PROBLEM 7 : ARRAY : 2535 : Difference betn element sum and digit sum
+	 * 
+	 * */
+	public static int differenceOfSum(int[] nums) {
+		int elementsSum = 0;
+		int digitsSum = 0;
+		for(int i=0; i<nums.length; i++) {
+			elementsSum = elementsSum + nums[i];
+			if(nums[i] <= 9) {
+				digitsSum = digitsSum + nums[i];
+			}
+			if(nums[i] == 10) {
+				digitsSum = digitsSum + 1;
+			}
+			if(nums[i] > 10) {
+				int num = nums[i];
+				while(num > 0) {
+					int rem = num % 10;
+					System.out.println(rem);
+					digitsSum = digitsSum + rem;
+					num = num / 10;
+				}
+			}
+		}
+		System.out.println(elementsSum);
+		System.out.println(digitsSum);
+		return elementsSum - digitsSum;
+	}
 	
 	
 	public static void main(String[] args) {
+		
+		
+		int[] nums = {2,7,8,10,8,10,1,10,5,9};
+		System.out.println(differenceOfSum(nums));
+		
+		
+		
+		/*
 		int[][] nums = new int[3][];
 		int[] arr1 = {1,2,7};
 		int[] arr2 = {3,4,5};
@@ -215,7 +244,6 @@ public class ArrayProblems {
 		int max = maxWealth(nums);
 		System.out.println(max);
 		
-		/*
 		int[] nums = {1,2,3,1,1,3}; //[3,4,6,16,17]
 		int n = numIdenticalPairs(nums);
 		System.out.println(n);
