@@ -211,14 +211,11 @@ public class ArrayProblems {
 				int num = nums[i];
 				while(num > 0) {
 					int rem = num % 10;
-					System.out.println(rem);
 					digitsSum = digitsSum + rem;
 					num = num / 10;
 				}
 			}
 		}
-		System.out.println(elementsSum);
-		System.out.println(digitsSum);
 		return elementsSum - digitsSum;
 	}
 	

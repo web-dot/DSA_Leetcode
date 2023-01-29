@@ -1,6 +1,9 @@
 package com.dsa.linked_list;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class LinkedListProblems {
 	
@@ -227,49 +230,46 @@ public class LinkedListProblems {
 	 * */
 	
 	
+	/*
+	 * PROBLEM 6 : Convert Binary Number in a Linked List to Integer
+	 * 
+	 * THIS SOLUTION NEEDS TO BE REFACTORED TO MAKE IT SIMPLE
+	 * 
+	 * */
+	public static int getDecimalValue(ListNode head) {
+		ListNode p1;
+		p1 = head;
+		List<Integer> bins = new ArrayList<>();
+		while(p1 != null) {
+			bins.add(p1.val);
+			p1 = p1.next;
+		}
+		if(bins.size() == 1 && bins.get(0) == 0) {
+			return 0;
+		}
+		Collections.reverse(bins);
+		int dec = 0;
+		int pow = 0;
+		for(Integer i : bins) {
+			if(i == 1) {
+				dec = (int) (dec + Math.pow(2, pow));
+			}
+			pow++;
+		}
+		return dec;
+	}
+	
 	
 	
 	public static void main(String[] args) {
-		
 		ListNode l1 = new ListNode(1);
-		ListNode l2 = new ListNode(2);
-		ListNode l3 = new ListNode(7);
+//		ListNode l2 = new ListNode(0);
+//		ListNode l3 = new ListNode(1);
 		
-		ListNode l4 = new ListNode(1);
-		ListNode l5 = new ListNode(4);
-		ListNode l6 = new ListNode(7);
-		ListNode l7 = new ListNode(9);
+//		l1.next = l2;
+//		l2.next = l3;
 		
-		ListNode l8 = new ListNode(2);
-		ListNode l9 = new ListNode(4);
-		ListNode l10 = new ListNode(7);
-		ListNode l11 = new ListNode(8);
-		ListNode l12 = new ListNode(13);
-		
-		l1.next = l2;
-		l2.next = l3;
-		
-		l4.next = l5;
-		l5.next = l6;
-		l6.next = l7;
-		
-		l8.next = l9;
-		l9.next = l10;
-		l10.next = l11;
-		l11.next = l12;
-		
-		ListNode[] listArray = new ListNode[] {l1, l4, l8};
-		ListNode r = mergeKLists(listArray);
-		
-		//ListNode r = mergeTwoLists(l1, l4);
-		//ListNode r = deleteNthFromEndS1(l1, 2);
-		
-		while(r != null) {
-			System.out.println(r.val);
-			r = r.next;
-		}
-
-		
+		System.out.println(getDecimalValue(l1));
 	}
 	
 }
