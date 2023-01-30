@@ -260,16 +260,46 @@ public class LinkedListProblems {
 	}
 	
 	
+	/*
+	 * PROBLEM 7 : LL : 876 : MIDDLE OF LL
+	 * 
+	 * given the head of a singly linked list, return the middle node, if there are two middle
+	 * nodes, return the second middle node.
+	 * 
+	 * */
+	public static ListNode middleNode(ListNode head) {
+		ListNode p1 = head;
+		ListNode p2 = head;
+		if(p2.next != null && p2.next.next == null) {
+			return p1.next;
+		}
+		while(p2.next != null) {
+			p1 = p1.next;
+			p2 = p2.next.next;
+			if(p2.next != null && p2.next.next == null) {
+				return p1.next;
+			}
+		}
+		return p1;
+	}
 	
 	public static void main(String[] args) {
+		
 		ListNode l1 = new ListNode(1);
-//		ListNode l2 = new ListNode(0);
-//		ListNode l3 = new ListNode(1);
+//		ListNode l2 = new ListNode(2);
+//		ListNode l3 = new ListNode(3);
+//		ListNode l4 = new ListNode(4);
+//		ListNode l5 = new ListNode(5);
+//		ListNode l6 = new ListNode(6);
 		
 //		l1.next = l2;
 //		l2.next = l3;
+//		l3.next = l4;
+//		l4.next = l5;
+//		l5.next = l6;
 		
-		System.out.println(getDecimalValue(l1));
+		ListNode r = middleNode(l1);
+		System.out.println(r.val);
 	}
 	
 }
