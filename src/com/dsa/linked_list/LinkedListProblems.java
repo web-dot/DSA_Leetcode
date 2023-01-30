@@ -283,23 +283,63 @@ public class LinkedListProblems {
 		return p1;
 	}
 	
+	/*
+	 * PROBLEM 8 : LL 206 : REVERSE A LL
+	 * 
+	 * */
+	public static ListNode reverseList(ListNode head) {
+		ListNode prev = null;
+		ListNode next = null;
+		ListNode curr = head;
+		
+		//	p n		h|c
+		//  null   	1  ->  2  ->  3  ->  4  ->  5
+
+		//	p 		h|c		n
+		//  null <- 1    	2  ->  3  ->  4  ->  5
+
+		//	 		p|h|c	n
+		//  null <- 1    	2  ->  3  ->  4  ->  5
+
+		//	 		h|p  	c|n
+		//  null <- 1    	2  ->  3  ->  4  ->  5
+
+		
+		while(curr != null) {
+			next = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = next;
+		}
+		head = prev;
+		return head;
+	}
+	
+	
 	public static void main(String[] args) {
 		
 		ListNode l1 = new ListNode(1);
-//		ListNode l2 = new ListNode(2);
-//		ListNode l3 = new ListNode(3);
-//		ListNode l4 = new ListNode(4);
-//		ListNode l5 = new ListNode(5);
+		ListNode l2 = new ListNode(2);
+		ListNode l3 = new ListNode(3);
+		ListNode l4 = new ListNode(4);
+		ListNode l5 = new ListNode(5);
 //		ListNode l6 = new ListNode(6);
 		
-//		l1.next = l2;
-//		l2.next = l3;
-//		l3.next = l4;
-//		l4.next = l5;
+		l1.next = l2;
+		l2.next = l3;
+		l3.next = l4;
+		l4.next = l5;
 //		l5.next = l6;
 		
-		ListNode r = middleNode(l1);
-		System.out.println(r.val);
+		ListNode n = reverseList(l1);
+		ListNode p = n;
+		
+		
+		while(p != null) {
+			System.out.println(p.val);
+			p = p.next;
+		}
+		
 	}
 	
 }
