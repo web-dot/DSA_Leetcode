@@ -332,14 +332,7 @@ public class LinkedListProblems {
 //		l5.next = l6;
 		
 		ListNode n = reverseList(l1);
-		ListNode p = n;
-		
-		
-		while(p != null) {
-			System.out.println(p.val);
-			p = p.next;
-		}
-		
+
 	}
 	
 }

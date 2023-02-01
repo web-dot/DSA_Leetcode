@@ -219,42 +219,28 @@ public class ArrayProblems {
 		return elementsSum - digitsSum;
 	}
 	
+	/*
+	 * PROBLEM 8 : Maximum number of words found in a sentence
+	 * 
+	 * given a array of sentences, return the number of words 
+	 * in a sentence
+	 * */
+	public static int mostWordsFound(String[] sentences) {
+		int maxWords = 0;
+		for(String sentence : sentences) {
+			String[] words = sentence.split(" ");
+			if(words.length > maxWords) {
+				maxWords = words.length;
+			}
+		}
+		return maxWords;
+	}
+	
+	
 	
 	public static void main(String[] args) {
 		
-		
-		int[] nums = {2,7,8,10,8,10,1,10,5,9};
-		System.out.println(differenceOfSum(nums));
-		
-		
-		
-		/*
-		int[][] nums = new int[3][];
-		int[] arr1 = {1,2,7};
-		int[] arr2 = {3,4,5};
-		int[] arr3 = {5,6,1};
-		
-		nums[0] = arr1;
-		nums[1] = arr2;
-		nums[2] = arr3;
-		
-		int max = maxWealth(nums);
-		System.out.println(max);
-		
-		int[] nums = {1,2,3,1,1,3}; //[3,4,6,16,17]
-		int n = numIdenticalPairs(nums);
-		System.out.println(n);
-		
-		int[] arr2 = {1,2,3,4,4,3,2,1}; // works
-		int[] arr = {2,5,1,3,4,7}; // works
- 		System.out.println(Arrays.toString(shuffle(arr2, 4)));
-
-		String[] operations = {"++X","++X","X--"};
-		System.err.println(finalValueAfterOperations(operations));
-	
-		int[] nums = {1, 2, 1};
-		int[] ans = getConcatenation(nums);
-		System.err.println(Arrays.toString(ans));
-		*/
+		String[] sentences = {"i am coding", "i will learn trees next", "then if i have time i will learh graph"};
+		System.out.println(mostWordsFound(sentences)); 
 	}
 }

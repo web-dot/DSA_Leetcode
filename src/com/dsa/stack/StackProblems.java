@@ -38,11 +38,59 @@ public class StackProblems {
 	 * */
 	
 	
-	
-	
-	public static boolean isValid(String s) {
+	/*
+	 *given two strings check if they are are equal, #means backspace 
+	 * */
+	public static boolean backspaceCompare(String s, String t) {
+		StackOfDelm stack1 = new StackOfDelm();
+		StackOfDelm stack2 = new StackOfDelm();
+		if(s.length() != t.length()) {
+			return false;
+		}
+		for(int i=0; i<s.length(); i++) {
+			char c = s.charAt(i);
+			if(i == 0 && c == '#') {
+				return false;
+			}
+			if(c != '#') {
+				stack1.push(c);
+			}
+			if(c != '#' && !stack1.isEmpty()) {
+				stack1.pop();
+			}
+		}
 		
-		return false;
+		char[] c1 = new char[10];
+		int k=0;
+		while(!stack1.isEmpty()) {
+			c1[k] = stack1.pop();
+			k++;
+		}
+		String s1 = new String(c1);
+		
+		for(int j=0; j<t.length(); j++) {
+			char c = t.charAt(j);
+			if(j == 0 && c == '#') {
+				return false;
+			}
+			if(c != '#') {
+				stack2.push(c);
+			}
+			if(c != '#' && !stack2.isEmpty()) {
+				stack2.pop();
+			}
+		}
+		
+		char[] c2 = new char[10];
+		int l = 0;
+		while(!stack2.isEmpty()) {
+			c2[l] = stack2.pop();
+			l++;
+		}
+		
+		String s2 = new String(c2);
+		
+		return s1.equals(s2);
 	}
 	
 	
@@ -51,6 +99,9 @@ public class StackProblems {
 		
 		
 		
+		String s = "a##c"; 
+		String t = "#a#c";
+		System.out.println(backspaceCompare(s, t));
 		
 		/*
 		 * PROBLEM 1 : Reverse a word
@@ -74,9 +125,10 @@ public class StackProblems {
 		
 		/*Delimiter matching test*/
 		
+		/*
 		StackOfDelm delmStack = new StackOfDelm();
 		
-		String input = "))";
+		String input = "()";
 		int length = input.length();
 		boolean val = true;
 		for(int i=0; i<input.length(); i++) {
@@ -110,5 +162,6 @@ public class StackProblems {
 			val = false;
 		}
 		System.out.println(val);
+		*/
 	}
 }
