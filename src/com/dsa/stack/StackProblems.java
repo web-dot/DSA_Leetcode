@@ -44,23 +44,23 @@ public class StackProblems {
 	public static boolean backspaceCompare(String s, String t) {
 		StackOfDelm stack1 = new StackOfDelm();
 		StackOfDelm stack2 = new StackOfDelm();
-		if(s.length() != t.length()) {
-			return false;
-		}
-		for(int i=0; i<s.length(); i++) {
-			char c = s.charAt(i);
-			if(i == 0 && c == '#') {
-				return false;
+		
+		char[] ch1 = s.toCharArray();
+		for(int i=0; i<ch1.length; i++) {
+			if(ch1[i] != '#') {
+				stack1.push(ch1[i]);
 			}
-			if(c != '#') {
-				stack1.push(c);
-			}
-			if(c != '#' && !stack1.isEmpty()) {
+			if(ch1[i] == '#' && !stack1.isEmpty()) {
 				stack1.pop();
+			}
+			if(i == 0 && ch1[i] == '#') {
+				char temp = ch1[i];
+				ch1[i] = ch1[i+1];
+				ch1[i+1] = temp;
 			}
 		}
 		
-		char[] c1 = new char[10];
+		char[] c1 = new char[100];
 		int k=0;
 		while(!stack1.isEmpty()) {
 			c1[k] = stack1.pop();
@@ -68,20 +68,25 @@ public class StackProblems {
 		}
 		String s1 = new String(c1);
 		
+		char[] ch2 = t.toCharArray();
 		for(int j=0; j<t.length(); j++) {
-			char c = t.charAt(j);
-			if(j == 0 && c == '#') {
-				return false;
+			if(ch2[j] == '#' && stack1.isEmpty()) {
+				
 			}
-			if(c != '#') {
-				stack2.push(c);
+			if(ch2[j] != '#') {
+				stack2.push(ch2[j]);
 			}
-			if(c != '#' && !stack2.isEmpty()) {
+			if(ch2[j] == '#' && !stack2.isEmpty()) {
 				stack2.pop();
+			}
+			if(j == 0 && ch2[j] == '#') {
+				char temp = ch1[j];
+				ch1[j] = ch1[j+1];
+				ch1[j+1] = temp;
 			}
 		}
 		
-		char[] c2 = new char[10];
+		char[] c2 = new char[100];
 		int l = 0;
 		while(!stack2.isEmpty()) {
 			c2[l] = stack2.pop();
@@ -99,8 +104,8 @@ public class StackProblems {
 		
 		
 		
-		String s = "a##c"; 
-		String t = "#a#c";
+		String s = "pnsu#aalutur####egfb##ta#y##guqftkkcz"; 
+		String t = "pnsu#aalutub#n#r####p#egfb##taj##y##guqftku#kl#cz";
 		System.out.println(backspaceCompare(s, t));
 		
 		/*

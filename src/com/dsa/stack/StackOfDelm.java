@@ -2,7 +2,7 @@ package com.dsa.stack;
 
 public class StackOfDelm {
 	
-	char[] charArr = new char[16];
+	char[] charArr = new char[100];
 	int top = -1;
 	
 	public void push(char c) {
