@@ -94,7 +94,6 @@ public class StackProblems {
 		}
 		
 		String s2 = new String(c2);
-		
 		return s1.equals(s2);
 	}
 	
