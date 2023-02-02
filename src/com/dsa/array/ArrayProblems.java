@@ -236,11 +236,30 @@ public class ArrayProblems {
 		return maxWords;
 	}
 	
+	/*
+	 * P9 : ARR 1365 : HOW MANY NUMBERS ARE SMALLER
+	 * 
+	 * */
+	public static int[] smallerNumberThanCurrent(int[] nums) {
+		
+		int[] count = new int[nums.length];
+		for(int i=0; i<nums.length; i++) {
+			int countMins = 0;
+			for(int j=0; j<nums.length; j++) {
+				if(nums[j] < nums[i]) {
+					countMins++;
+				}
+			}
+			count[i] = countMins;
+		}
+		return count;
+	}
+	
 	
 	
 	public static void main(String[] args) {
 		
-		String[] sentences = {"i am coding", "i will learn trees next", "then if i have time i will learh graph"};
-		System.out.println(mostWordsFound(sentences)); 
+		int[] nums = {8,1,2,2,3};
+		System.out.println(Arrays.toString(smallerNumberThanCurrent(nums)));
 	}
 }
