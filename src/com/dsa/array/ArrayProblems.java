@@ -256,10 +256,37 @@ public class ArrayProblems {
 	}
 	
 	
+	/*
+	 * P 10 : Create target array in given order
+	 *        .
+	 * [0,1,2,3,4] 
+	 * [0,1,2,2,1] 
+	 * 
+	 * 		
+	 * */
+	public static int[] createTargetArray(int[] nums, int[] index) {
+		int[] out = new int[nums.length];
+		for(int i=0; i<index.length; i++) {
+			int in = index[i];
+			out[in] = nums[i];
+			if(i > in) {
+				int temp = out[in];
+				out[in] = nums[i];
+				nums[i] = temp;
+			}
+		}
+		return out;
+	}
+	
 	
 	public static void main(String[] args) {
 		
-		int[] nums = {8,1,2,2,3};
-		System.out.println(Arrays.toString(smallerNumberThanCurrent(nums)));
+		int[] nums = {0,1,2,3,4};
+		int[] index = {0,1,2,2,1};
+		
+		int[] result = createTargetArray(nums, index);
+		System.out.println(Arrays.toString(result));
+		
+		
 	}
 }
