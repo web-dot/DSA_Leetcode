@@ -258,22 +258,31 @@ public class ArrayProblems {
 	
 	/*
 	 * P 10 : Create target array in given order
-	 *        .
-	 * [0,1,2,3,4] 
-	 * [0,1,2,2,1] 
-	 * 
+	 * i 0 1 2 3 4
+	 * 	[0,1,2,3,4]
+	 * in        1
+	 * 	[0,1,2,2,1]
+	 * j   1   3
+	 * 	[0,4,1,3,2]
+	 *  
+	 * 	[0,4,1,3,2]
 	 * 		
 	 * */
 	public static int[] createTargetArray(int[] nums, int[] index) {
 		int[] out = new int[nums.length];
-		for(int i=0; i<index.length; i++) {
+		int i = 0;
+		for(i=0; i<index.length; i++) {
 			int in = index[i];
-			out[in] = nums[i];
-			if(i > in) {
-				int temp = out[in];
-				out[in] = nums[i];
-				nums[i] = temp;
+			if(i != 0 && i > in) {
+				int j = i-1;
+				while(j >= in) {
+					out[j+1] = out[j];
+					j--;
+				}
+				out[in] = nums[i]; 
 			}
+			else
+				out[in] = nums[i];
 		}
 		return out;
 	}
