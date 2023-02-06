@@ -308,9 +308,13 @@ public class ArrayProblems {
 	 * P 12 : ARR 1773 : Count items matching rule
 	 * */
 	public static int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
-		
-		
-		return -1;
+		int count = 0;
+		for(List<String> item : items) {
+			String type = item.get(0);
+			String color = item.get(1);
+			String name = item.get(2);
+		}
+		return count;
 	}
 	
 	
