@@ -287,15 +287,28 @@ public class ArrayProblems {
 		return out;
 	}
 	
+	/*
+	 * P 11 : ARR 1528 : SHUFFLE STRING
+	 * 
+	 * */
+	public static String restoreString(String s, int[] indices) {
+		char[] carr = new char[s.length()];
+		if(s.length() != indices.length) {
+			return null;
+		}
+		for(int i=0; i<indices.length; i++) {
+			char mapC = s.charAt(i);
+			int mapI = indices[i];
+			carr[mapI] = mapC;
+		}
+		return new String(carr);
+	}
+	
 	
 	public static void main(String[] args) {
-		
-		int[] nums = {0,1,2,3,4};
-		int[] index = {0,1,2,2,1};
-		
-		int[] result = createTargetArray(nums, index);
-		System.out.println(Arrays.toString(result));
-		
-		
+	
+		String s = "codeleet";
+		int[] ind = {4,5,6,7,0,1,2,3};
+		System.out.println(restoreString(s, ind));
 	}
 }
