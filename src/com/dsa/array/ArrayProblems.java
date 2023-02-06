@@ -1,6 +1,6 @@
 package com.dsa.array;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class ArrayProblems {
 	
@@ -303,6 +303,20 @@ public class ArrayProblems {
 		}
 		return new String(carr);
 	}
+	
+	/**
+	 * P 12 : ARR 1773 : Count items matching rule
+	 * */
+	public static int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
+		
+		
+		return -1;
+	}
+	
+	
+	
+	
+	
 	
 	
 	public static void main(String[] args) {
