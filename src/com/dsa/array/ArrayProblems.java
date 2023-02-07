@@ -1,6 +1,10 @@
 package com.dsa.array;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ArrayProblems {
 	
@@ -323,16 +327,39 @@ public class ArrayProblems {
 		return count;
 	}
 	
+	public static int sumOddLengthSubarrays1(int[] arr) {
+		int sum = 0;
+		for(int i=0; i<arr.length; i++){
+			List<Integer> subList = new ArrayList<>();
+			for(int j=i; j<arr.length; j++) {
+				subList.add(arr[j]);
+				if(subList.size()%2 == 1) {
+					sum = sum + subList.stream().mapToInt(Integer::intValue).sum();
+				}
+			}
+		}
+		return sum;
+	}
 	
-	
-	
-	
+	//REFACTOR
+	public static int sumOddLengthSubarrays(int[] arr) {
+		int result = 0;
+		int limit = 1;
+		while(limit <= arr.length) {
+			for(int i=0; i < arr.length - limit + 1; i++) {
+				for(int j=i; j<i+limit; j++) {
+					result += arr[j];
+				}
+			}
+			limit += 2;
+		}
+		return result;
+	}
 	
 	
 	public static void main(String[] args) {
-	
-		String s = "codeleet";
-		int[] ind = {4,5,6,7,0,1,2,3};
-		System.out.println(restoreString(s, ind));
+		
+		int[] arr = {1,4,2,5,3};
+		System.out.println(sumOddLengthSubarrays(arr)); 
 	}
 }
