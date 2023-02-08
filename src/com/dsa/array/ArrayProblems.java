@@ -374,10 +374,15 @@ public class ArrayProblems {
 	}
 	
 	
+	/**
+	 * P14 : Truncate sentence
+	 * */
+	public static String truncateSentence(String s, int k) {
+		return null;
+	}
+	
+	
 	public static void main(String[] args) {
-		
-		String[] s1 = {"ac", "b"};
-		String[] s2 = {"a", "bc"};
-		System.out.println(arrayStringsAreEqual(s1, s2)); 
+		 
 	}
 }
