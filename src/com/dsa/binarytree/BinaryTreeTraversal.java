@@ -19,6 +19,15 @@ public class BinaryTreeTraversal {
 			preOrderTraversal(node.right);
 		}
 	}
+	
+	public static void inorderTraversal(StringNode node) {
+		if(node == null) {
+			return;
+		}
+		System.out.print(node.data + " ");
+		inorderTraversal(node.left);
+		inorderTraversal(node.right);
+	}
 
 	public static void main(String[] args) {
 		StringNode root = new StringNode("A");
@@ -28,6 +37,8 @@ public class BinaryTreeTraversal {
 		root.right = new StringNode("C");
 		root.right.right = new StringNode("F");
 		preOrderTraversal(root);
+		System.out.println();
+		inorderTraversal(root);
 	}
 
 }
