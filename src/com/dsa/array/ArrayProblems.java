@@ -376,13 +376,24 @@ public class ArrayProblems {
 	
 	/**
 	 * P14 : Truncate sentence
+	 * 
+	 * steps:
+	 * -> convert the string into a string array
+	 * -> concatenate the k-1 elements with a space and return
+	 * 
 	 * */
 	public static String truncateSentence(String s, int k) {
-		return null;
+		String[] sarr = s.split(" ");
+		String out = "";
+		for(int i=0; i<k; i++) {
+			out = out + sarr[i] + " ";
+		}
+		return out.trim();
 	}
 	
 	
 	public static void main(String[] args) {
-		 
+		String s = "Hello how are you Contestant";
+		System.out.println(truncateSentence(s, 4));
 	}
 }
