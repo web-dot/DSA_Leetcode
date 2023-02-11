@@ -392,8 +392,28 @@ public class ArrayProblems {
 	}
 	
 	
+	/**
+	 * P15 : ARR 2006 : count number of pairs with absolute difference k
+	 * 
+	 * */
+	public static int countKDifference(int[] nums, int k) {
+		int count = 0;
+		for(int i = 0; i < nums.length; i++) {
+			for(int j = i + 1; j < nums.length; j++) {
+				if(Math.floorMod(nums[i], nums[j]) == k) {
+					count++;
+				}
+//				if(Math.floorMod(nums[j], nums[i]) == k) {
+//					count++;
+//				}
+			}
+		}
+		return count;
+	} 
+	
 	public static void main(String[] args) {
-		String s = "Hello how are you Contestant";
-		System.out.println(truncateSentence(s, 4));
+		int[] a1 = {3,2,1,5,4}; // [3,1], [2,4], [4,2]
+		int k = 2;
+		System.out.println(countKDifference(a1, k));
 	}
 }
