@@ -408,6 +408,15 @@ public class ArrayProblems {
 		return count;
 	} 
 	
+	/**
+	 * P16 : ARR 1684 : allowed, words, consistent
+	 * 
+	 * */
+	public static int countConsistentString(String allowed, String[] words) {
+		
+		return -1;
+	}
+	
 	public static void main(String[] args) {
 		int[] a1 = {3,2,1,5,4}; // [3,1], [2,4], [4,2]
 		int k = 2;
