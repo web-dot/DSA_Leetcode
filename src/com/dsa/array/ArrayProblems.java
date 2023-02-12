@@ -400,12 +400,9 @@ public class ArrayProblems {
 		int count = 0;
 		for(int i = 0; i < nums.length; i++) {
 			for(int j = i + 1; j < nums.length; j++) {
-				if(Math.floorMod(nums[i], nums[j]) == k) {
+				if(Math.abs(nums[i]-nums[j]) == 2) {
 					count++;
 				}
-//				if(Math.floorMod(nums[j], nums[i]) == k) {
-//					count++;
-//				}
 			}
 		}
 		return count;
