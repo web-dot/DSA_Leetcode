@@ -21,12 +21,11 @@ public class BinaryTreeTraversal {
 	}
 	
 	public static void inorderTraversal(StringNode node) {
-		if(node == null) {
-			return;
+		if(node != null) {
+			inorderTraversal(node.left);
+			System.out.print(node.data + " ");
+			inorderTraversal(node.right);
 		}
-		System.out.print(node.data + " ");
-		inorderTraversal(node.left);
-		inorderTraversal(node.right);
 	}
 
 	public static void main(String[] args) {
