@@ -36,10 +36,19 @@ public class StringProblems {
 	}
 	
 	
+	/**
+	 * P2 : string 1108 : Defang a IPv4 address
+	 * 
+	 * */
+	public static String defangIPaddr(String address) {
+		String newIp = address.replace(".", "[.]");
+		return newIp;
+	}
+	
+	
 	public static void main(String[] args) {
+		String address = "1.1.1.1";
+		System.out.println(defangIPaddr(address));
 		
-		String d1 = "2020-01-15";
-		String d2 = "2019-12-31";
-		System.out.println(daysBetweenDates(d1, d2)); 
 	}
 }

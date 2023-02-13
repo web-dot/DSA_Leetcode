@@ -35,6 +35,7 @@ public class BinaryTreeTraversal {
 		root.left.right = new StringNode("E");
 		root.right = new StringNode("C");
 		root.right.right = new StringNode("F");
+		
 		preOrderTraversal(root);
 		System.out.println();
 		inorderTraversal(root);
