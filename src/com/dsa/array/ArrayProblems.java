@@ -415,18 +415,17 @@ public class ArrayProblems {
 	public static int countConsistentString(String allowed, String[] words) {
 		int count = 0;
 		for(String s : words) {
-			Set<Character> set = new HashSet<>();
-			StringBuilder sb = new StringBuilder();
-			for(int i=0; i<s.length(); i++) {
-				char c = s.charAt(i);
-				set.add(c);
-			}
-			for(char c : set) {
-				sb.append(c);
-			}
-			if(allowed.contains(sb.toString())) {
-				count++;
-			}
+		    boolean isConsistent = true;
+		    for (int i = 0; i < s.length(); i++) {
+		        char c = s.charAt(i);
+		        if (!allowed.contains(String.valueOf(c))) {
+		            isConsistent = false;
+		            break;
+		        }
+		    }
+		    if (isConsistent) {
+		        count++;
+		    }
 		}
 		return count;
 	}
