@@ -413,13 +413,27 @@ public class ArrayProblems {
 	 * 
 	 * */
 	public static int countConsistentString(String allowed, String[] words) {
-		
-		return -1;
+		int count = 0;
+		for(String s : words) {
+			Set<Character> set = new HashSet<>();
+			StringBuilder sb = new StringBuilder();
+			for(int i=0; i<s.length(); i++) {
+				char c = s.charAt(i);
+				set.add(c);
+			}
+			for(char c : set) {
+				sb.append(c);
+			}
+			if(allowed.contains(sb.toString())) {
+				count++;
+			}
+		}
+		return count;
 	}
 	
 	public static void main(String[] args) {
-		int[] a1 = {3,2,1,5,4}; // [3,1], [2,4], [4,2]
-		int k = 2;
-		System.out.println(countKDifference(a1, k));
+		String allowed = "abc";
+		String[] words = {"a","b","c","ab","ac","bc","abc"};
+		System.out.println(countConsistentString(allowed, words));
 	}
 }
