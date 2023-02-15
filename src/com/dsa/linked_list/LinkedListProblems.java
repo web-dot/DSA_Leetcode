@@ -334,41 +334,44 @@ public class LinkedListProblems {
 		return inter;
 	}
 	
-	
+	/**
+	 * P10 : LL83 : given a sorted linked list, delete all duplicates
+	 * */
+	public static ListNode deleteDuplicates(ListNode head) {
+		ListNode p1 = head;
+		ListNode p2 = head.next;
+		if(head == null) {
+			return null;
+		}
+		while(p2.next != null) {
+			if(p1.val == p2.val) {
+				p1.next = p2.next;
+			}
+			p1 = p1.next;
+			p2 = p2.next;
+		}
+		return head;
+	}
 	
 	public static void main(String[] args) {
 		
-		ListNode l1 = new ListNode(4);
-		ListNode l2 = new ListNode(1);
-		ListNode l3 = new ListNode(8);
+		ListNode l1 = new ListNode(0);
+		ListNode l2 = new ListNode(2);
+		ListNode l3 = new ListNode(4);
 		ListNode l4 = new ListNode(4);
-		ListNode l5 = new ListNode(5);
-//		ListNode l6 = new ListNode(6);
-		
-		ListNode l7 = new ListNode(5);
-		ListNode l8 = new ListNode(6);
-		ListNode l9 = new ListNode(1);
-		ListNode l10 = new ListNode(8);
-		ListNode l11 = new ListNode(4);
-		ListNode l12 = new ListNode(5);
+		ListNode l5 = new ListNode(7);
 		
 		l1.next = l2;
 		l2.next = l3;
 		l3.next = l4;
 		l4.next = l5;
 		
-		l7.next = l8;
-		l8.next = l9;
-		l9.next = l10;
-		l10 = l3;
+		ListNode l = deleteDuplicates(l1);
 		
-		ListNode n = getIntersectionNode(l1, l7);
-		System.out.println(n.val);
-//		ListNode n1 = new ListNode(10);
-//		ListNode n2 = n1;
-//		
-//		System.out.println(n1 == n2);
-		
+		while(l != null) {
+			System.out.print(l.val + " ");
+			l = l.next;
+		}
 	}
 	
 }
