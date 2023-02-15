@@ -339,32 +339,38 @@ public class LinkedListProblems {
 	 * */
 	public static ListNode deleteDuplicates(ListNode head) {
 		ListNode p1 = head;
-		ListNode p2 = head.next;
-		if(head == null) {
-			return null;
-		}
-		while(p2.next != null) {
+		ListNode p2 = p1.next;
+		while(p2 != null) {
 			if(p1.val == p2.val) {
 				p1.next = p2.next;
+				p1 = p2.next;
+				p2 = p1.next;
 			}
-			p1 = p1.next;
-			p2 = p2.next;
+			else {
+				p1 = p1.next;
+				p2 = p2.next;
+			}
+		}
+		if(p1 != null && p2 != null) {
+			if(p1.val == p2.val) {
+				p1.next = null;
+			}
 		}
 		return head;
 	}
 	
 	public static void main(String[] args) {
 		
-		ListNode l1 = new ListNode(0);
-		ListNode l2 = new ListNode(2);
-		ListNode l3 = new ListNode(4);
-		ListNode l4 = new ListNode(4);
-		ListNode l5 = new ListNode(7);
+		ListNode l1 = new ListNode(1);
+		ListNode l2 = new ListNode(1);
+		ListNode l3 = new ListNode(2);
+//		ListNode l4 = new ListNode(3);
+//		ListNode l5 = new ListNode(3);
 		
 		l1.next = l2;
 		l2.next = l3;
-		l3.next = l4;
-		l4.next = l5;
+//		l3.next = l4;
+//		l4.next = l5;
 		
 		ListNode l = deleteDuplicates(l1);
 		
