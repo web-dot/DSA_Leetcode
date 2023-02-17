@@ -1,6 +1,7 @@
 package com.dsa.array;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -430,9 +431,37 @@ public class ArrayProblems {
 		return count;
 	}
 	
+	
+	
+	/**
+	 * P17 : ARR (youtube Exponent channel problem) : 
+	 * 
+	 * given an array on n integers construct product array of
+	 * the same size such that the [i]th element of the product array
+	 * is equal to the of all the elements of the original array except
+	 * for the [i]th element
+	 * 
+	 * */
+	public static int[] getProductArray(int[] nums) {
+		int[] productArr = new int[nums.length];
+		for(int i=0; i<nums.length; i++) {
+			int product = 1;
+			for(int j=0; j<nums.length; j++) {
+				if(i==j) {
+					product = product * 1;
+				}
+				else {
+					product = product * nums[j];
+				}
+			}
+			productArr[i] = product;
+		}
+		return productArr;
+	}
+	
 	public static void main(String[] args) {
-		String allowed = "abc";
-		String[] words = {"a","b","c","ab","ac","bc","abc"};
-		System.out.println(countConsistentString(allowed, words));
+		int[] arr = {1,2,3};
+		int[] proarr = getProductArray(arr);
+		System.out.println(Arrays.toString(proarr));
 	}
 }
