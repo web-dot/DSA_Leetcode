@@ -459,9 +459,53 @@ public class ArrayProblems {
 		return productArr;
 	}
 	
+	//optimizing
+	public static int[] getProductArrayOptim(int[] arr) {
+		int len = arr.length;
+		int[] left = new int[arr.length];
+		int[] right = new int[arr.length];
+		
+		Arrays.fill(left, 1);
+		Arrays.fill(right, 1);
+		int[] product = new int[arr.length];
+		
+		//[1,2,3,4,5] [1,1,1,1,1]
+		/**
+		 * build left hand array ->
+		 * for each position in the array we want to
+		 * take product of everything that came before it
+		 * excluding the current position
+		 * 
+		 */
+		for(int i=1; i<len; i++) {
+			left[i] = left[i - 1] * arr[i - 1]; 
+		}
+		
+		/**
+		 * build right hand array ->
+		 * for right hand array we are going to move backwards
+		 * */
+		for(int i=len-2; i>=0; i--) {
+			right[i] = right[i + 1] * arr[i + 1];
+		}
+		
+		/**
+		 * build product array from subarrays
+		 * */
+		for(int i=0; i<len; i++) {
+			product[i] = left[i] * right[i];
+		}
+		
+//		System.out.println(Arrays.toString(left));
+		System.out.println(Arrays.toString(arr));
+		System.out.println(Arrays.toString(product));
+		return null;
+	}
+	
+	
 	public static void main(String[] args) {
-		int[] arr = {1,2,3};
-		int[] proarr = getProductArray(arr);
-		System.out.println(Arrays.toString(proarr));
+		int[] arr = {3,2,1,2};
+		int[] proarr = getProductArrayOptim(arr);
+		//System.out.println(Arrays.toString(proarr));
 	}
 }
