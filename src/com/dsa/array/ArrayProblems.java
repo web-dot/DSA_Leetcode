@@ -495,17 +495,17 @@ public class ArrayProblems {
 		for(int i=0; i<len; i++) {
 			product[i] = left[i] * right[i];
 		}
-		
-//		System.out.println(Arrays.toString(left));
-		System.out.println(Arrays.toString(arr));
-		System.out.println(Arrays.toString(product));
-		return null;
+		return product;
 	}
 	
 	
 	public static void main(String[] args) {
-		int[] arr = {3,2,1,2};
-		int[] proarr = getProductArrayOptim(arr);
-		//System.out.println(Arrays.toString(proarr));
+		int[] arr1 = {1,2,3,4};
+		int[] arr2 = {-1,-2,-3,-4};
+		int[] arr3 = {0,2,3,4};
+		int[] arr4 = {0,2,0,0};
+		
+		int[] proarr = getProductArrayOptim(arr1);
+		System.out.println(Arrays.toString(proarr));
 	}
 }
