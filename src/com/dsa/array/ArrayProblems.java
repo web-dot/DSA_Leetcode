@@ -499,13 +499,35 @@ public class ArrayProblems {
 	}
 	
 	
+	/**
+	 * P18 : ARR (youtube Exponent channel problem : SUBARRAY MULTIPLE OF K) : 
+	 * given an integer array `nums` an integer `K`,
+	 * return true if nums has a sub-array where
+	 * its length is at least 2 and the sum of the
+	 * elements in the sub-array is a multiple of K
+	 *
+	 *	[2,1,3,6] -> 3 -> true
+	 * 	[7,2,4,5] -> 7 -> true
+	 * 	[7,2,4,3] -> 7 -> false
+	 * 
+	 * */
+	public static boolean kDivisorOfSubarray(int[] arr, int k) {
+		for(int i = 0; i<arr.length; i++) {
+			int p1 = i;
+			int p2 = arr.length-1;
+			List<Integer> inter = new ArrayList<>();
+			inter.add(arr[i]);
+			while(p1<p2) {
+				inter.add(arr[p2]);
+				p2--;
+			}
+			System.out.println(inter);
+		}
+		return false;
+	}
+
 	public static void main(String[] args) {
-		int[] arr1 = {1,2,3,4};
-		int[] arr2 = {-1,-2,-3,-4};
-		int[] arr3 = {0,2,3,4};
-		int[] arr4 = {0,2,0,0};
-		
-		int[] proarr = getProductArrayOptim(arr1);
-		System.out.println(Arrays.toString(proarr));
+		int[] arr = {1,2,5,7,2,4};
+		System.out.println(kDivisorOfSubarray(arr, 8));
 	}
 }
