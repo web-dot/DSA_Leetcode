@@ -500,11 +500,14 @@ public class ArrayProblems {
 	
 	
 	/**
-	 * P18 : ARR (youtube Exponent channel problem : SUBARRAY MULTIPLE OF K) : 
-	 * given an integer array `nums` an integer `K`,
-	 * return true if nums has a sub-array where
-	 * its length is at least 2 and the sum of the
-	 * elements in the sub-array is a multiple of K
+	 * P18 : ARR (youtube Exponent channel problem : good subarray) : 
+	 * 
+	 * let's say you are given an integer array nums and a integer k, return true
+	 * if nums has a good subarray or false otherwise.
+	 * 
+	 * a good subarray is a subarray where:
+	 * its length is at least two, and
+	 * the sum of the elements of the subarray is a multiple of k
 	 *
 	 *	[2,1,3,6] -> 3 -> true
 	 * 	[7,2,4,5] -> 7 -> true
