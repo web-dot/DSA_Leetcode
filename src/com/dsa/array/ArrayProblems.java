@@ -2,6 +2,7 @@ package com.dsa.array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -509,6 +510,8 @@ public class ArrayProblems {
 	 * its length is at least two, and
 	 * the sum of the elements of the subarray is a multiple of k
 	 *
+	 *	[23,2,4,6,7], k=6 -> true
+	 *
 	 *	[2,1,3,6] -> 3 -> true
 	 * 	[7,2,4,5] -> 7 -> true
 	 * 	[7,2,4,3] -> 7 -> false
@@ -523,14 +526,63 @@ public class ArrayProblems {
 			while(p1<p2) {
 				inter.add(arr[p2]);
 				p2--;
+				System.out.println(inter);
+				double sum = inter.stream().mapToInt(value -> value.intValue()).sum();
+				if(sum % k == 0) {
+					return true;
+				}
 			}
-			System.out.println(inter);
 		}
 		return false;
 	}
+	
+	/**
+	 * insertion sort
+	 * */
+	public static int[] insertionSort(int[] nums) {
+		for(int i=0; i<nums.length; i++){
+			int temp = nums[i];
+			int j = i - 1;
+			//1,2,4,2,3
+			while(j >= 0 && nums[j] > temp ) {
+				nums[j + 1] = nums[j];
+				j--;
+			}
+			nums[j + 1] = temp;
+		}
+		return nums;
+	}
+	
+	/**
+	 * P19: ARR 2089 : find target indices after sorting array
+	 * */
+	public static List<Integer> targetIndices(int[] nums, int target){
+		int[] result = insertionSort(nums);
+		System.out.println(Arrays.toString(result));
+		int start = 0;
+		int end = result.length-1;
+		List<Integer> indexList = new ArrayList<>();
+		while(start <= end) {
+			int mid = end + (start-end) / 2;
+			if(result[mid] == target) {
+				indexList.add(mid);
+			}
+			if(target <= result[mid]) {
+				end = mid - 1;
+			}
+			else
+				start = mid + 1;
+		}
+		Collections.sort(indexList);
+		return indexList;
+	}
+	
+	
+	
 
 	public static void main(String[] args) {
-		int[] arr = {1,2,5,7,2,4};
-		System.out.println(kDivisorOfSubarray(arr, 8));
+		int[] arr = {100,1,100};
+		List<Integer> result = targetIndices(arr, 100);
+		System.out.println(result);
 	}
 }
