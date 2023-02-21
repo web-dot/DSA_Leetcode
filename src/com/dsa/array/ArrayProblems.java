@@ -558,31 +558,59 @@ public class ArrayProblems {
 	 * */
 	public static List<Integer> targetIndices(int[] nums, int target){
 		int[] result = insertionSort(nums);
-		System.out.println(Arrays.toString(result));
 		int start = 0;
 		int end = result.length-1;
 		List<Integer> indexList = new ArrayList<>();
-		while(start <= end) {
+		while(start < end) {
 			int mid = end + (start-end) / 2;
 			if(result[mid] == target) {
 				indexList.add(mid);
 			}
-			if(target <= result[mid]) {
-				end = mid - 1;
-			}
-			else
+			if(target > result[mid]) {
 				start = mid + 1;
+			}
+			if(target < result[mid]) {
+				end = mid - 1;
+			} 
 		}
 		Collections.sort(indexList);
 		return indexList;
 	}
 	
 	
+	/**
+	 * P20 : ARR 1913 : maximum product difference between two pairs
+	 * 5,6,2,7,4
+	 * */
+	public static int maxProductDifference(int[] nums) {
+		List<List<Integer>> pairList =  new ArrayList<>();
+		for(int i=0; i<nums.length; i++) {
+			for(int j=i+1; j<nums.length; j++) {
+				List<Integer> pair = new ArrayList<>();
+				pair.add(nums[i]);
+				pair.add(nums[j]);
+				pairList.add(pair);
+			}
+		}
+		int maxDiff = 0;
+		for(int i=0 ; i<pairList.size(); i++) {
+			int prod1 = pairList.get(i).get(0) * pairList.get(i).get(1);
+			for(int j=i + 1; j<pairList.size(); j++) {
+				int prod2 = pairList.get(j).get(0) * pairList.get(j).get(1);
+				int diff = prod1 - prod2;
+				if(diff > maxDiff) {
+					maxDiff = diff;
+				}
+			}
+		}
+		return maxDiff;
+	}
+	
+	
 	
 
 	public static void main(String[] args) {
-		int[] arr = {100,1,100};
-		List<Integer> result = targetIndices(arr, 100);
-		System.out.println(result);
-	}
+		int[] nums = {5,6,2,7,4};
+		System.out.println(maxProductDifference(nums));
+ 	}
 }
