@@ -611,8 +611,6 @@ public class ArrayProblems {
 		for(int i=0; i<heights.length; i++) {
 			map.put(heights[i], names[i]);
 		}
-		System.out.println(map);
-		
 		List<Integer> sortedList = new ArrayList<>(); 
 		for(int i : heights) {
 			sortedList.add(i);
@@ -621,17 +619,14 @@ public class ArrayProblems {
 		Collections.reverse(sortedList);
 		
 		String[] namesSorted = new String[names.length];
-		
-		for(int i=0; i< sortedList.size() ; i++) {
-			for(Map.Entry<Integer, String> entry : map.entrySet()) {
-				System.out.println(entry.getKey());
-				System.out.println("sorted " + sortedList.get(i));
-				if(entry.getKey() == sortedList.get(i)) {
-					System.out.println("v" + entry.getValue());
-					namesSorted[i] = entry.getValue();
-				}
-			}
-		}
+		int index = 0;
+		  for (Integer height : sortedList) {
+		        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+		            if (entry.getKey().equals(height)) {
+		                namesSorted[index++] = entry.getValue();
+		            }
+		        }
+		    }
 		return namesSorted;
 	}
 	
