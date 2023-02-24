@@ -338,26 +338,44 @@ public class LinkedListProblems {
 	 * P10 : LL83 : given a sorted linked list, delete all duplicates
 	 * */
 	public static ListNode deleteDuplicates(ListNode head) {
-		ListNode p1 = head;
-		ListNode p2 = p1.next;
-		while(p2 != null) {
-			if(p1.val == p2.val) {
-				p1.next = p2.next;
-				p1 = p2.next;
-				p2 = p1.next;
+//		  ListNode p1 = head;
+//			ListNode p2 = p1.next;
+//			while(p2 != null) {
+//				if(p1.val == p2.val) {
+//					p1.next = p2.next;
+//	                if(p1.next == null){
+//	                    return head;
+//	                }
+//	                else{
+//	                    p1 = p2.next;
+//					    p2 = p1.next;
+//	                }
+//				}
+//				else {
+//					p1 = p1.next;
+//					p2 = p2.next;
+//				}
+//			}
+//			if(p1 != null && p2 != null) {
+//				if(p1.val == p2.val) {
+//					p1.next = null;
+//				}
+//			}
+		
+		if(head == null || head.next == null)
+			return head;
+		
+		ListNode p = head;
+		while(p != null && p.next != null) {
+			if(p.val == p.next.val) {
+				p.next = p.next.next;
 			}
-			else {
-				p1 = p1.next;
-				p2 = p2.next;
-			}
+			else 
+				p = p.next;
 		}
-		if(p1 != null && p2 != null) {
-			if(p1.val == p2.val) {
-				p1.next = null;
-			}
-		}
-		return head;
+			return head;
 	}
+	
 	
 	public static void main(String[] args) {
 		
