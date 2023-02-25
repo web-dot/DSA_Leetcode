@@ -358,42 +358,39 @@ public class LinkedListProblems {
 	 * 
 	 * */
 	public static boolean isPalindrome(ListNode head) {
-		ListNode slow = head;
-		ListNode fast = head;
-		while(fast != null && fast.next != null) {
-			slow = slow.next;
-			fast = fast.next.next;
+		ListNode current = head;
+		List<Integer> list = new ArrayList<>();
+		while(current != null) {
+			list.add(current.val);
+			current = current.next;
 		}
-		ListNode p3 = head;
-		List<Integer> l1 = new ArrayList<>();
-		List<Integer> l2 = new ArrayList<>();
-		while(slow.next != null) {
-			l1.add(slow.next.val);
-			l2.add(p3.val);
-			slow = slow.next;
-			p3 = p3.next;
+		int i = 0;
+		int j = list.size() - 1;
+		while(i<j) {
+			if(!list.get(i).equals(list.get(j))) {
+				return false;
+			}
+			i++;
+			j--;
 		}
-		Collections.reverse(l2);
-		System.out.println(l1);
-		System.out.println(l2);
-		return l1.equals(l2);
+		return true;
 	}
 	
 	public static void main(String[] args) {
 		ListNode l1 = new ListNode(1);
 		ListNode l2 = new ListNode(2);
-//		ListNode l3 = new ListNode(1);
+		ListNode l3 = new ListNode(1);
 //		ListNode l4 = new ListNode(0);
-//		ListNode l5 = new ListNode(1);
-//		ListNode l6 = new ListNode(4);
-//		ListNode l7 = new ListNode(2);
+		ListNode l5 = new ListNode(1);
+		ListNode l6 = new ListNode(2);
+		ListNode l7 = new ListNode(1);
 		
 		l1.next = l2;
-//		l2.next = l3;
-//		l3.next = l5;
+		l2.next = l3;
+		l3.next = l5;
 //		l4.next = l5;
-//		l5.next = l6;
-//		l6.next = l7;
+		l5.next = l6;
+		l6.next = l7;
 		
 //		ListNode l = deleteDuplicates(l1);
 		System.out.println(isPalindrome(l1));
