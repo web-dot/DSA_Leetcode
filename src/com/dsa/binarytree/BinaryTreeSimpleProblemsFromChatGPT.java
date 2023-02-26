@@ -4,6 +4,7 @@ class TreeNode{
 	int data;
 	TreeNode left, right;
 	public TreeNode(int data) {
+		this.data = data;
 		this.left = this.right = null;
 	}
 }
@@ -34,15 +35,42 @@ public class BinaryTreeSimpleProblemsFromChatGPT {
 		return Math.max(leftDepth, rightDepth) + 1;
 	}
 	
+	/**
+	 * P3:
+	 * Given a binary tree, determine if it is a valid binary search tree
+	 * BST -> value of each node is: 
+	 * 	-> greater than or equal to values of all the nodes in its left subtree
+	 * 	-> less than or equal to the values of all the nodes in its right subtree
+	 * */
+	public static boolean isValidBST(TreeNode root) {
+		return isValidBSTHelper(root, null, null);
+	}
+	
+	public static boolean isValidBSTHelper(TreeNode node, Integer min, Integer max) {
+		if(node == null) {
+			return true;
+		}
+		if((min != null && node.data <= min) || (max != null && node.data >= max)) {
+			return false;
+		}
+		
+		boolean leftValid = isValidBSTHelper(node.left, min, node.data);
+		boolean rightValid = isValidBSTHelper(node.right, node.data, max);
+		
+		return leftValid && rightValid;
+	}
+	
 	
 	public static void main (String[] args) {
-		TreeNode node = new TreeNode(1);
-		node.left = new TreeNode(2);
-		node.right = new TreeNode(3);
-		node.left.left = new TreeNode(4);
-		node.left.right = new TreeNode(5);
+		TreeNode node = new TreeNode(5);
+		node.left = new TreeNode(3);
+		node.right = new TreeNode(7);
+		node.left.left = new TreeNode(2);
+		node.left.right = new TreeNode(4);
+		node.right.right = new TreeNode(9);
 		
 //		System.out.println(countNodes(node));
-		System.out.println(maxDepth(node));
+//		System.out.println(maxDepth(node));
+		System.out.println(isValidBST(node));
 	}
 }
