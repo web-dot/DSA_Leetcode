@@ -71,6 +71,16 @@ public class BinaryTreeSimpleProblemsFromChatGPT {
 	    int rightDepth = maxDepth(root.right);
 	    return Math.max(leftDepth, rightDepth) + 1;
 	 }
+	 
+	 /**
+	   P3: SYMMETRIC BINARY TREE
+	  */
+	  public static boolean isSymmetric(TreeNode root){
+	      if(root.left.data != root.right.data){
+	         return false;
+	      }
+	      return true;
+	  }
 	
 	
 	public static void main (String[] args) {
