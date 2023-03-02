@@ -72,27 +72,45 @@ public class BinaryTreeSimpleProblemsFromChatGPT {
 	    return Math.max(leftDepth, rightDepth) + 1;
 	 }
 	 
-	 /**
+
+	  /**
 	   P3: SYMMETRIC BINARY TREE
+	   
+	            3
+	         2     2
+	       8  18 15   7 
+	   
+	   
 	  */
-	  public static boolean isSymmetric(TreeNode root){
-	      if(root.left.data != root.right.data){
+	  public static boolean isSymmetric(TreeNode root, TreeNode leftSubs, TreeNode rightSubs){
+	      if(root == null){
 	         return false;
 	      }
-	      return true;
+	      return isMirror(root.left, root.right);
+	  }
+	  
+	  public static boolean isMirror(TreeNode leftSubs, TreeNode rightSubs){
+	      if(leftSubs == null && rightSubs == null){
+	            return true;
+	      }
+	      if(leftSubs == null || rightSubs == null){
+	            return false;
+	      }
+	      if(leftSubs.data != rightSubs.data){
+	            return false;
+	      }
+	      return isMirror(leftSubs.left, rightSubs.right) && isMirror(leftSubs.right, rightSubs.left);
 	  }
 	
 	
 	public static void main (String[] args) {
-		TreeNode node = new TreeNode(5);
-		node.left = new TreeNode(3);
-		node.right = new TreeNode(7);
-		node.left.left = new TreeNode(2);
-		node.left.right = new TreeNode(4);
-		node.right.right = new TreeNode(9);
-		
-//		System.out.println(countNodes(node));
-//		System.out.println(maxDepth(node));
-		System.out.println(isValidBST(node));
+		 TreeNode root = new TreeNode(1);
+	      root.left = new TreeNode(2);
+	      root.right = new TreeNode(2);
+	      root.left.left = new TreeNode(3);
+	      root.left.right = new TreeNode(4);
+	      root.right.left = new TreeNode(4);
+	      root.right.right = new TreeNode(3);
+	      System.out.println(isSymmetric(root, root.left, root.right));
 	}
 }
