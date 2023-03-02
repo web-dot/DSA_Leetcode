@@ -101,6 +101,14 @@ public class BinaryTreeSimpleProblemsFromChatGPT {
 	      }
 	      return isMirror(leftSubs.left, rightSubs.right) && isMirror(leftSubs.right, rightSubs.left);
 	  }
+	  
+	  /**
+	   * P4 MAX PATH SUM
+	   * */
+	  public static int maxPathSum(TreeNode root) {
+		  
+		  return -1;
+	  }
 	
 	
 	public static void main (String[] args) {
