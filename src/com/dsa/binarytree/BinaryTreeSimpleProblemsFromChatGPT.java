@@ -121,24 +121,38 @@ public class BinaryTreeSimpleProblemsFromChatGPT {
    }
 	  
 	  
-	  /**
-	   * P4 MAX PATH SUM
-	   * */
-	  public static int maxPathSum(TreeNode root) {
-		  
-		  return -1;
-	  }
+	   /**
+      P6: MAX PATH SUM : RETURNONG INCORRECT RESULT
+         1
+       2   3
+     4   5   6 
+   */
+  public static int maxSumPath(TreeNode root) {
+    int[] maxSum = {Integer.MIN_VALUE};
+    maxSumPathHelper(root, maxSum);
+    return maxSum[0];
+}
+
+private static int maxSumPathHelper(TreeNode node, int[] maxSum) {
+    if (node == null) {
+        return 0;
+    }
+    int leftSum = Math.max(0, maxSumPathHelper(node.left, maxSum));
+    int rightSum = Math.max(0, maxSumPathHelper(node.right, maxSum));
+    int nodeMaxSum = node.val + leftSum + rightSum;
+    maxSum[0] = Math.max(maxSum[0], nodeMaxSum);
+    return node.val + Math.max(leftSum, rightSum);
+}
+
 	
 	
 	public static void main (String[] args) {
-		 TreeNode root = new TreeNode(3);
-	      root.left = new TreeNode(2);
-	      root.right = new TreeNode(2);
-	      root.left.left = new TreeNode(8);
-	      root.left.right = new TreeNode(18);
-	      root.right.left = new TreeNode(15);
-	      root.right.right = new TreeNode(7);
-//	      System.out.println(isSymmetric(root, root.left, root.right));
-	      dfs(root);
+	TreeNode root = new TreeNode(1);
+      root.left = new TreeNode(2);
+      root.right = new TreeNode(3);
+      root.left.left = new TreeNode(4);
+      root.left.right = new TreeNode(5);
+      root.right.right = new TreeNode(6);
+      System.out.println(maxSumPath(root));    
 	}
 }
