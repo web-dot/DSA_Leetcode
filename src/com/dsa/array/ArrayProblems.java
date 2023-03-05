@@ -631,9 +631,9 @@ public class ArrayProblems {
 	}
 	
 	/**
-      P21: Given a 0-indexed integer array nums, find a 0-indexed integer array answer where:
+      ARR: 2574 : P21: Given a 0-indexed integer array nums, find a 0-indexed integer array answer where:
       answer.length = nums.length
-      answer[i] = leftSum[i] - rightSum[i]
+      answer[i] = |leftSum[i] - rightSum[i]|
       
       Where:
       1.leftSum[i] is the sum of elements to the left of the index i in the array nums. If there is no such element,
@@ -644,14 +644,21 @@ public class ArrayProblems {
         return the array answer
    */
 	public static int[] leftRightDifference(int[] nums){
-            
+        int[] leftSumArray = new int[nums.length];
+        int[] rightSumArray = new int[nums.length];
+        //[2,7,1,3]
+        for(int i=0; i<nums.length; i++){
+         leftSumArray[i] = leftSumArray[i] + nums[i]; 
+        }
+        System.out.println(Arrays.toString(leftSumArray));
    }
 	
 
 	public static void main(String[] args) {
-		String[] names = {"Mary","John","Emma"};
-		int[] heights = {180,165,170};
-		System.out.println(Arrays.toString(sortPeople(names, heights)));
-		
+// 		String[] names = {"Mary","John","Emma"};
+// 		int[] heights = {180,165,170};
+// 		System.out.println(Arrays.toString(sortPeople(names, heights)));
+         int[] nums = {2,7,1,3};
+         leftRightDifference(nums); 		
  	}
 }
