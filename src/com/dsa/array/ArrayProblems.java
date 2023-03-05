@@ -630,8 +630,22 @@ public class ArrayProblems {
 		return namesSorted;
 	}
 	
-	
-	
+	/**
+      P21: Given a 0-indexed integer array nums, find a 0-indexed integer array answer where:
+      answer.length = nums.length
+      answer[i] = leftSum[i] - rightSum[i]
+      
+      Where:
+      1.leftSum[i] is the sum of elements to the left of the index i in the array nums. If there is no such element,
+        leftSum[i] = 0
+      2.rightSum[i] is the sum of elements to the right of the index i in the array nums. If there is no such element,
+        rightSum[i] = 0
+        
+        return the array answer
+   */
+	public static int[] leftRightDifference(int[] nums){
+            
+   }
 	
 
 	public static void main(String[] args) {
