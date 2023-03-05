@@ -646,11 +646,22 @@ public class ArrayProblems {
 	public static int[] leftRightDifference(int[] nums){
         int[] leftSumArray = new int[nums.length];
         int[] rightSumArray = new int[nums.length];
-        //[2,7,1,3]
-        for(int i=0; i<nums.length; i++){
-         leftSumArray[i] = leftSumArray[i] + nums[i]; 
+                  
+        // build left hand array -> 
+        for(int i=1; i<nums.length; i++){
+            leftSumArray[i] = leftSumArray[i-1] + nums[i-1];
         }
-        System.out.println(Arrays.toString(leftSumArray));
+        
+        //build right hand array ->
+        for(int j=nums.length-2; j>=0; j--){
+            rightSumArray[j] = rightSumArray[j+1] + nums[j+1];  
+        }          
+        
+        int[] answer = new int[nums.length];
+        for(int k=0; k<answer.length; k++){
+            answer[k] = Math.abs(leftSumArray[k] - rightSumArray[k]); 
+        }
+        return answer;
    }
 	
 
@@ -659,6 +670,7 @@ public class ArrayProblems {
 // 		int[] heights = {180,165,170};
 // 		System.out.println(Arrays.toString(sortPeople(names, heights)));
          int[] nums = {2,7,1,3};
-         leftRightDifference(nums); 		
+         int[] result = leftRightDifference(nums);
+         System.out.println(Arrays.toString(result)); 		
  	}
 }
