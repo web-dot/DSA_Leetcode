@@ -382,12 +382,16 @@ public class LinkedListProblems {
 	 * */
 	public static ListNode removeElements(ListNode head, int val) {
 		ListNode current = head;
+		//1 2 6 3 4 5 6 
 		while(current != null && current.next != null) {
-			if(current.val == val) {
+			if(current.next.val == val) {
 				current.next = current.next.next;
 			}
 			else {
 				current = current.next;
+			}
+			if(current.next.next == null && current.next.val == val) {
+				current.next = null;
 			}
 		}
 		return head;
@@ -404,7 +408,7 @@ public class LinkedListProblems {
 		
 		l1.next = l2;
 		l2.next = l3;
-		l3.next = l5;
+		l3.next = l4;
 		l4.next = l5;
 		l5.next = l6;
 		l6.next = l7;
