@@ -382,22 +382,18 @@ public class LinkedListProblems {
 	 * */
 	public static ListNode removeElements(ListNode head, int val) {
 		ListNode current = head;
-		//1 2 6 3 4 5 6 
-		while(current != null && current.next != null) {
-			if(current.next.val == val) {
-				current.next = current.next.next;
-			}
-			else {
-				current = current.next;
-			}
-			if(current.next.next == null && current.next.val == val) {
-				current.next = null;
-			}
+		while(current != null) {
+         if(current.val == val){
+            current = current.next;
+         }
+         head = current;
 		}
 		return head;
 	}
 	
 	public static void main(String[] args) {
+   
+      //1,2,6,3,4,5,6
 		ListNode l1 = new ListNode(1);
 		ListNode l2 = new ListNode(2);
 		ListNode l3 = new ListNode(6);
@@ -411,7 +407,7 @@ public class LinkedListProblems {
 		l3.next = l4;
 		l4.next = l5;
 		l5.next = l6;
-		l6.next = l7;
+	   l6.next = l7;
 		
 		ListNode l = removeElements(l1, 6);
 //		System.out.println(isPalindrome(l1));
