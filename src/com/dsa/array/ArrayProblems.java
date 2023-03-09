@@ -631,7 +631,7 @@ public class ArrayProblems {
 	}
 	
 	/**
-    ARR: 2574 : P21: Given a 0-indexed integer array nums, find a 0-indexed integer array answer where:
+    P22: ARR: 2574 : Given a 0-indexed integer array nums, find a 0-indexed integer array answer where:
     answer.length = nums.length
     answer[i] = |leftSum[i] - rightSum[i]|
     
@@ -663,11 +663,32 @@ public class ArrayProblems {
       }
       return answer;
  }
+ 
+    /**
+      P23 : ARR 1431 : Kids with the greatest number of candies   
+    */
+    public static List<Boolean> kidsWithCandies(int[] candies, int extraCandies){
+      List<Boolean> boolArray = new ArrayList<>();
+      for(int i=0; i<candies.length; i++){
+         int result = candies[i] + extraCandies;
+         boolean ifMax = false;
+         for(int j=0; j<candies.length; j++){
+            if(result >= candies[j]){
+               ifMax = true;
+            }
+            else{
+               ifMax = false;
+               break;
+            }
+         }
+         boolArray.add(ifMax);
+      }
+      return boolArray;
+    }
 
 	public static void main(String[] args) {
-		String[] names = {"Mary","John","Emma"};
-		int[] heights = {180,165,170};
-		System.out.println(Arrays.toString(sortPeople(names, heights)));
-		
+      int[] c = {2,3,5,1,3};
+		List<Boolean> boo = kidsWithCandies(c, 3);
+      System.out.println(boo);
  	}
 }
