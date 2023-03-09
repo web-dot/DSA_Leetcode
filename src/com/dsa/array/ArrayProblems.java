@@ -685,6 +685,13 @@ public class ArrayProblems {
       }
       return boolArray;
     }
+    
+    /**
+      P24: ARR 1313 : Decompress Run-Length-Encoded List
+    */
+    public static int[] decompressRLElist(int[] nums){
+      
+    }
 
 	public static void main(String[] args) {
       int[] c = {2,3,5,1,3};
