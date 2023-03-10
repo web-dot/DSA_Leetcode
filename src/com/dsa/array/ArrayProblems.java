@@ -688,14 +688,37 @@ public class ArrayProblems {
     
     /**
       P24: ARR 1313 : Decompress Run-Length-Encoded List
+      
+      [1,2,3,4,2,5,1,2] -> [2,4,4,4]
+
     */
     public static int[] decompressRLElist(int[] nums){
+      List<Integer> list = new ArrayList<>();
+      int[] farr = new int[nums.length/2];
+      int[] narr = new int[nums.length/2];
       
+      int f = 0;
+      int n = 0;
+      for(int i=0; i<nums.length; i+=2){
+         //System.out.print(nums[i]);
+        
+         farr[f] = nums[i];
+         f++;
+      }
+      System.out.print(" : ");
+      for(int j=1; j<nums.length; j+=2){
+            //System.out.print(nums[j]);
+            narr[n] = nums[j];
+            n++;
+      }
+      
+      System.out.println(Arrays.toString(farr) + " : "  +Arrays.toString(narr));
+  
+      return null;
     }
 
 	public static void main(String[] args) {
-      int[] c = {2,3,5,1,3};
-		List<Boolean> boo = kidsWithCandies(c, 3);
-      System.out.println(boo);
+      int[] c = {1,2,3,4,2,5,1,2};
+		decompressRLElist(c);
  	}
 }
