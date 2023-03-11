@@ -711,9 +711,20 @@ public class ArrayProblems {
             narr[n] = nums[j];
             n++;
       }
-      
+     
+     int lengthFinal = 0;
+     int[] finalArr = new int[lengthFinal];
+     
+     for(int i=0; i<lengthFinal; i++){
+         int l = farr[i];
+         int k = narr[i];
+         for(int j=0; j<l; j++){
+            finalArr[j] = k;       
+         }
+     }
+
       System.out.println(Arrays.toString(farr) + " : "  +Arrays.toString(narr));
-  
+      System.out.println(Arrays.toString(finalArr));
       return null;
     }
 
