@@ -712,14 +712,20 @@ public class ArrayProblems {
             n++;
       }
      
-     int lengthFinal = 0;
+     int lengthFinal = farr.length;
      int[] finalArr = new int[lengthFinal];
      
-     for(int i=0; i<lengthFinal; i++){
+     for(int i=0; i<farr.length; i++){
          int l = farr[i];
          int k = narr[i];
+         //System.out.println("l = " + l );
+         //System.out.println("k = " + k );
+         int x = 0;
          for(int j=0; j<l; j++){
-            finalArr[j] = k;       
+            System.out.println(narr[i]); 
+            
+            finalArr[i] = narr[i];
+            x++;      
          }
      }
 
