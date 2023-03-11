@@ -700,38 +700,31 @@ public class ArrayProblems {
       int f = 0;
       int n = 0;
       for(int i=0; i<nums.length; i+=2){
-         //System.out.print(nums[i]);
-        
          farr[f] = nums[i];
          f++;
       }
-      System.out.print(" : ");
       for(int j=1; j<nums.length; j+=2){
-            //System.out.print(nums[j]);
             narr[n] = nums[j];
             n++;
       }
      
-     int lengthFinal = farr.length;
+     int lengthFinal = 0;
+     for(int x : farr){
+      lengthFinal += x;
+     }
+     
      int[] finalArr = new int[lengthFinal];
      
+     int x = 0;
      for(int i=0; i<farr.length; i++){
          int l = farr[i];
          int k = narr[i];
-         //System.out.println("l = " + l );
-         //System.out.println("k = " + k );
-         int x = 0;
          for(int j=0; j<l; j++){
-            System.out.println(narr[i]); 
-            
-            finalArr[i] = narr[i];
-            x++;      
+            finalArr[x] = k;
+            x++
          }
-     }
-
-      System.out.println(Arrays.toString(farr) + " : "  +Arrays.toString(narr));
-      System.out.println(Arrays.toString(finalArr));
-      return null;
+     } 
+      return finalArr;
     }
 
 	public static void main(String[] args) {
