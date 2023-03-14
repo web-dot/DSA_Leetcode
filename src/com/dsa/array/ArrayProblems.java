@@ -721,7 +721,7 @@ public class ArrayProblems {
          int k = narr[i];
          for(int j=0; j<l; j++){
             finalArr[x] = k;
-            x++
+            x++;
          }
      } 
       return finalArr;
