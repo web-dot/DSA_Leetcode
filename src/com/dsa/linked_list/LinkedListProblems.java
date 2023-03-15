@@ -407,6 +407,26 @@ public class LinkedListProblems {
       head = prev;
       return head;
    }
+   
+   
+   /**
+      RECAP : REVERSE A LINKED LIST
+      
+      null --> n1 --> n2 --> null
+   */
+   public static ListNode reverseALinkedList(ListNode head){
+      ListNode prev = null;
+      ListNode next = null;
+      ListNode curr = head;
+      while(curr != null){
+         next = curr.next;
+         curr.next = prev;
+         prev = curr;
+         curr = next;     
+      }
+      head = prev;
+      return head;
+   }
 	
 	public static void main(String[] args) {
    
@@ -422,12 +442,11 @@ public class LinkedListProblems {
 		l1.next = l2;
 		l2.next = l3;
 		l3.next = l4;
-	// 	l4.next = l5;
-// 		l5.next = l6;
-// 	   l6.next = l7;
-// 		
+//	  	l4.next = l5;
+// 	l5.next = l6;
+// 	l6.next = l7;	
 
-      ListNode l = reverseLinked(l1);		
+      ListNode l = reverseALinkedList(l1);		
 		while(l != null) {
 			System.out.print(l.val + " ");
 			l = l.next;
