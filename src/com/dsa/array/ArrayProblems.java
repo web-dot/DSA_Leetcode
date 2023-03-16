@@ -726,9 +726,30 @@ public class ArrayProblems {
      } 
       return finalArr;
     }
+    
+    /**
+      P25 :ARR (youtube exponent channel) : Ahmed Khaled - google 
+      Given an array of integers with n + 1 numbers in it ranging from 1 to n
+      there is only one repeated number in this entire array. Return the repeated
+      number without modifying the array and only using constant extra space.
+      
+      [2,3,1,3]
+          
+    */
+      public static int findDuplicateBruteForce(int[] arr){
+         for(int i=0; i<arr.length; i++){
+            for(int j=i+1; j<arr.length; j++){
+               if(arr[i] == arr[j]){
+                  return arr[i];
+               }
+            }
+         }
+         return -1;
+      }    
+    
 
 	public static void main(String[] args) {
-      int[] c = {1,2,3,4,2,5,1,2};
-		decompressRLElist(c);
+      int[] c = {2,3,1,3};
+		System.out.println(findDuplicateBruteForce(c));
  	}
 }
