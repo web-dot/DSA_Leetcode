@@ -736,6 +736,13 @@ public class ArrayProblems {
       [2,3,1,3]
           
     */
+    
+    /**
+    Solution1 - brute force solution 
+    -comparing each element with every other element
+    - time complexity O(n2)
+    - space complexity O(1)
+   */
       public static int findDuplicateBruteForce(int[] arr){
          for(int i=0; i<arr.length; i++){
             for(int j=i+1; j<arr.length; j++){
@@ -747,9 +754,26 @@ public class ArrayProblems {
          return -1;
       }    
     
+    
+     /**
+      Solution2 - To improve the time complexity:
+      - sort the array
+      - compare each element to the element next to it
+    */
+    public static int findDuplicateImproved(int[] arr){
+      Arrays.sort(arr);
+      for(int i=0; i<arr.length; i++){
+         if(arr[i] == arr[i+1]){
+            return arr[i];
+         }
+      }
+      return -1;
+    }
+    
 
 	public static void main(String[] args) {
       int[] c = {2,3,1,3};
-		System.out.println(findDuplicateBruteForce(c));
+		//System.out.println(findDuplicateBruteForce(c));
+      System.out.println(findDuplicateImproved(c));
  	}
 }
