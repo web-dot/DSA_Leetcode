@@ -1,6 +1,8 @@
 package com.dsa.strings;
 
 import java.util.Arrays;
+import java.util.Set;
+import java.util.HashSet;
 
 public class StringProblems {
 
@@ -50,21 +52,43 @@ public class StringProblems {
    */
 	public static String removeVowels(String str){
       char[] vowels = {'a', 'e', 'i', 'o', 'u'};
-      String replaced = "";
+      StringBuilder sb = new StringBuilder();
+      for(int i=0; i<vowels.length; i++){
+         char c = str.charAt(i);
+         for(int j=0; j<str.length(); j++){
+            System.out.print(vowels[j] + " ");
+            
+         }   
+         System.out.println();
+      }
+      return sb.toString();
+   }
+   
+   /*
+      optimized
+      - using HashSet in place of an array to store the vowels for constant time lookup
+      - using StringBuilder to store the newly created array
+   */
+   public static String removeVowelsOptimized(String str){
+      Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
+      StringBuilder sb = new StringBuilder();
       for(int i=0; i<str.length(); i++){
          char c = str.charAt(i);
-         for(int j=0; j<vowels.length; j++){
-            if(c == vowels[j]){
-               replaced = str.replace(c, ' ');
-            }
-         }   
+         if(!vowels.contains(c)){
+            sb.append(c);
+         }
       }
-      return replaced;
+      return sb.toString();
    }
-	
+   
+   /**
+      P4: JEWELS AND STONES: 
+   */
+   
 	public static void main(String[] args) {
 		String str = "Hello";
       String r = removeVowels(str);
+      String p = removeVowelsOptimized(str);
       System.out.println(r);
 	}
 }
