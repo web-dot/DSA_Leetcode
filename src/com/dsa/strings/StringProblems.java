@@ -44,11 +44,27 @@ public class StringProblems {
 		String newIp = address.replace(".", "[.]");
 		return newIp;
 	}
-	
+   
+   /**
+    P3 : LEET 1119 : REMOVE VOWELS FROM A STRING
+   */
+	public static String removeVowels(String str){
+      char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+      String replaced = "";
+      for(int i=0; i<str.length(); i++){
+         char c = str.charAt(i);
+         for(int j=0; j<vowels.length; j++){
+            if(c == vowels[j]){
+               replaced = str.replace(c, ' ');
+            }
+         }   
+      }
+      return replaced;
+   }
 	
 	public static void main(String[] args) {
-		String address = "1.1.1.1";
-		System.out.println(defangIPaddr(address));
-		
+		String str = "Hello";
+      String r = removeVowels(str);
+      System.out.println(r);
 	}
 }
