@@ -770,10 +770,21 @@ public class ArrayProblems {
       return -1;
     }
     
+    /**
+      ARR : 1920 : Build Array from Permutation
+    */
+    public static int[] buildArray(int[] nums){
+      int[] ans = new int[nums.length];
+      for(int i=0; i<nums.length; i++){
+         ans[i] = nums[nums[i]];
+      }
+      return ans;
+    }
+    
 
 	public static void main(String[] args) {
-      int[] c = {2,3,1,3};
-		//System.out.println(findDuplicateBruteForce(c));
-      System.out.println(findDuplicateImproved(c));
+      int[] c = {0,2,1,5,3,4};
+      int[] r = buildArray(c);
+      System.out.println(Arrays.toString(r));
  	}
 }
