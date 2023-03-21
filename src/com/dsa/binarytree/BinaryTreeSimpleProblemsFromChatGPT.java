@@ -139,20 +139,33 @@ private static int maxSumPathHelper(TreeNode node, int[] maxSum) {
     }
     int leftSum = Math.max(0, maxSumPathHelper(node.left, maxSum));
     int rightSum = Math.max(0, maxSumPathHelper(node.right, maxSum));
-    int nodeMaxSum = node.val + leftSum + rightSum;
+    int nodeMaxSum = node.data + leftSum + rightSum;
     maxSum[0] = Math.max(maxSum[0], nodeMaxSum);
-    return node.val + Math.max(leftSum, rightSum);
+    return node.data + Math.max(leftSum, rightSum);
 }
 
 	
 	
-	public static void main (String[] args) {
-	TreeNode root = new TreeNode(1);
-      root.left = new TreeNode(2);
-      root.right = new TreeNode(3);
-      root.left.left = new TreeNode(4);
-      root.left.right = new TreeNode(5);
-      root.right.right = new TreeNode(6);
-      System.out.println(maxSumPath(root));    
-	}
+   /**
+      P7 : FIND MAX VALUE IN THE TREE   
+   */   
+   public static void maxValue(TreeNode node){
+      if(node == null){
+         return;
+      }
+      System.out.println(node.left.val);
+      System.out.println(node.right.val);
+      maxValue(node.left);
+      maxValue(node.right);
+   }
+   
+   public static void main(String[] args){
+      TreeNode root = new TreeNode(5);
+      root.left = new TreeNode(3);
+      root.right = new TreeNode(7);
+      root.left.left = new TreeNode(2);
+      root.left.right = new TreeNode(4);
+      root.right.right = new TreeNode(9);
+      maxValue(root);
+   }
 }
