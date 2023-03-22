@@ -149,23 +149,33 @@ private static int maxSumPathHelper(TreeNode node, int[] maxSum) {
    /**
       P7 : FIND MAX VALUE IN THE TREE   
    */   
-   public static void maxValue(TreeNode node){
+   public static int maxValue(TreeNode node){
       if(node == null){
-         return;
+         return Integer.MIN_VALUE;
       }
-      System.out.println(node.left.val);
-      System.out.println(node.right.val);
-      maxValue(node.left);
-      maxValue(node.right);
+      int max = node.data;
+      int leftMax = maxValue(node.left);
+      int rightMax = maxValue(node.right);
+      if(leftMax > max){
+         max = leftMax;
+      }
+      if(rightMax > max){
+         max = rightMax;
+      }
+      return max;
    }
    
    public static void main(String[] args){
       TreeNode root = new TreeNode(5);
+      
       root.left = new TreeNode(3);
       root.right = new TreeNode(7);
+      
       root.left.left = new TreeNode(2);
       root.left.right = new TreeNode(4);
+      
+      root.right.left = new TreeNode(6);
       root.right.right = new TreeNode(9);
-      maxValue(root);
+      System.out.println(maxValue(root));
    }
 }
