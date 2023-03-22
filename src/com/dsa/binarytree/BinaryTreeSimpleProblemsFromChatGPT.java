@@ -153,9 +153,12 @@ private static int maxSumPathHelper(TreeNode node, int[] maxSum) {
       if(node == null){
          return Integer.MIN_VALUE;
       }
+      
       int max = node.data;
+      
       int leftMax = maxValue(node.left);
       int rightMax = maxValue(node.right);
+      
       if(leftMax > max){
          max = leftMax;
       }
@@ -163,6 +166,18 @@ private static int maxSumPathHelper(TreeNode node, int[] maxSum) {
          max = rightMax;
       }
       return max;
+   }
+   
+   /**
+      P8 : FIND MAXIMUM DEPTH OF A BT
+   */
+   public static int maximumDepth(TreeNode node){
+      if(node == null){
+         return Integer.MIN_VALUE;
+      }
+      int leftDepth = maxDepth(node.left);
+      int rightDepth = maxDepth(node.right);
+      return Math.max(leftDepth, rightDepth) + 1;    
    }
    
    public static void main(String[] args){
@@ -176,6 +191,6 @@ private static int maxSumPathHelper(TreeNode node, int[] maxSum) {
       
       root.right.left = new TreeNode(6);
       root.right.right = new TreeNode(9);
-      System.out.println(maxValue(root));
+      System.out.println(maximumDepth(root));
    }
 }
