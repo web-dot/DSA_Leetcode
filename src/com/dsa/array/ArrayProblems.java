@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -771,7 +773,7 @@ public class ArrayProblems {
     }
     
     /**
-      ARR : 1920 : Build Array from Permutation
+      P26 : ARR : 1920 : Build Array from Permutation
     */
     public static int[] buildArray(int[] nums){
       int[] ans = new int[nums.length];
@@ -781,10 +783,22 @@ public class ArrayProblems {
       return ans;
     }
     
+    /**
+      P27 : CODING BAT : ARR2 : CENTERED AVERAGE
+    */
+    public static int centeredAverage(int[] nums){
+      Set<Integer> set = new HashSet<>();
+      for(int n : nums){
+         set.add(n);
+      }
+      System.out.println(set);
+      return -1;
+    }
+    
+    
 
 	public static void main(String[] args) {
-      int[] c = {0,2,1,5,3,4};
-      int[] r = buildArray(c);
-      System.out.println(Arrays.toString(r));
+      int[] c = {1, 2, 3, 4, 100};
+      System.out.println(centeredAverage(c));
  	}
 }
