@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-
+import java.util.Iterator;
 public class ArrayProblems {
 	
 	
@@ -787,18 +787,26 @@ public class ArrayProblems {
       P27 : CODING BAT : ARR2 : CENTERED AVERAGE
     */
     public static int centeredAverage(int[] nums){
-      Set<Integer> set = new HashSet<>();
-      for(int n : nums){
-         set.add(n);
+      Arrays.sort(nums);
+       int len = 0;
+       for(int i= 1; i<nums.length-1; i++){
+          len++;
+       }
+      int index = len/2;
+      int wa = 0;
+      if(index%2==0){
+         wa = (nums[index] + nums[index+1]) / 2;
       }
-      System.out.println(set);
-      return -1;
+      else{
+         wa = nums[index];
+      }
+      return wa;
     }
     
     
 
 	public static void main(String[] args) {
-      int[] c = {1, 2, 3, 4, 100};
+      int[] c = {-10, -4, -2, -4, -2, 0};
       System.out.println(centeredAverage(c));
  	}
 }
