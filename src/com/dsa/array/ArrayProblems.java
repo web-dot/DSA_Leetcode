@@ -806,7 +806,7 @@ public class ArrayProblems {
     
 
 	public static void main(String[] args) {
-      int[] c = {-10, -4, -2, -4, -2, 0};
+      int[] c = {1, 2, 3, 4, 100};
       System.out.println(centeredAverage(c));
  	}
 }
