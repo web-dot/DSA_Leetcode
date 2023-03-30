@@ -13,9 +13,18 @@ public class RecursionSimpleProblemsFomChatGPT {
          countdown(n-1);
       }
     }
-	
+    
+    /**factorial of a positive number*/
+    public static int findFactorial(int num){
+      if(num == 1){
+         return 1;
+      }
+      else{
+         return num * findFactorial(num - 1);
+      }  
+    }
+    
 	public static void main(String[] args) {
-		int n = 5;
-      countdown(5);
+		System.out.println(findFactorial(5));
 	}
 }
