@@ -24,7 +24,16 @@ public class RecursionSimpleProblemsFomChatGPT {
       }  
     }
     
+    public static int findSum(int num){
+      if(num == 1 ){
+         return 1;
+      }
+      else{
+         return num + findSum(num - 1);
+      }
+    }
+    
 	public static void main(String[] args) {
-		System.out.println(findFactorial(5));
+		System.out.println(findSum(5));
 	}
 }
