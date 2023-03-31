@@ -86,28 +86,45 @@ public class StringProblems {
          any two letters in the `start` string so that the result is equal to the `goal` string. 
    */
    public static boolean testStrings(String start, String goal){
+      if(start.length() != goal.length()){
+         return false;
+      }
       char[] startArr = start.toCharArray();
       char[] goalArr = goal.toCharArray();
       char p1 = startArr[0];
       char p2 = goalArr[0];
-      //doce
-      //code
+      Set<Character> set = new HashSet<>();
       for(int i=0; i<startArr.length; i++){
          p1 = startArr[i];
          for(int j=i; j<i+1; j++){
             p2 = goalArr[j];
             if(p1 != p2){
             int index = i;
-            System.out.println(index);
+            set.add(p1);
+            set.add(p2);
+            }
          }
-         }
-      }   
-      return false;
+      }
+      return (set.size() == 2);
    }
    
 	public static void main(String[] args) {
-      String start = "doce";
-      String goal = "code";
-      testStrings(start, goal);
+      String start1 = "lhicl";
+      String goal1 = "chill";
+      
+      String start2 = "doce";
+      String goal2 = "code";
+      
+      String start3 = "star";
+      String goal3 = "tar";
+      
+      
+      String start4 = "xoye";
+      String goal4 = "code";
+      
+      System.out.println(testStrings(start1, goal1));
+      System.out.println(testStrings(start2, goal2));
+      System.out.println(testStrings(start3, goal3));
+      System.out.println(testStrings(start4, goal4));
 	}
 }
