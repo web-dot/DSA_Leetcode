@@ -82,13 +82,32 @@ public class StringProblems {
    }
    
    /**
-      P4: JEWELS AND STONES: 
+      P4: given two strings, the `start` and the `goal` string, return true if you can swap
+         any two letters in the `start` string so that the result is equal to the `goal` string. 
    */
+   public static boolean testStrings(String start, String goal){
+      char[] startArr = start.toCharArray();
+      char[] goalArr = goal.toCharArray();
+      char p1 = startArr[0];
+      char p2 = goalArr[0];
+      //doce
+      //code
+      for(int i=0; i<startArr.length; i++){
+         p1 = startArr[i];
+         for(int j=i; j<i+1; j++){
+            p2 = goalArr[j];
+            if(p1 != p2){
+            int index = i;
+            System.out.println(index);
+         }
+         }
+      }   
+      return false;
+   }
    
 	public static void main(String[] args) {
-		String str = "Hello";
-      String r = removeVowels(str);
-      String p = removeVowelsOptimized(str);
-      System.out.println(r);
+      String start = "doce";
+      String goal = "code";
+      testStrings(start, goal);
 	}
 }
