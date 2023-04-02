@@ -25,15 +25,18 @@ public class RecursionSimpleProblemsFomChatGPT {
     }
     
     public static int findSum(int num){
+      int sum = 0;
       if(num == 1 ){
          return 1;
       }
       else{
-         return num + findSum(num - 1);
+         sum = num + findSum(num - 1);
+         System.out.println(sum);
+         return sum;
       }
     }
     
 	public static void main(String[] args) {
-		System.out.println(findSum(5));
+		findSum(5);
 	}
 }

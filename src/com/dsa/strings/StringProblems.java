@@ -82,8 +82,8 @@ public class StringProblems {
    }
    
    /**
-      P4: given two strings, the `start` and the `goal` string, return true if you can swap
-         any two letters in the `start` string so that the result is equal to the `goal` string. 
+      P4: EXPONENT CODING INTERVIEW : given two strings, the `start` and the `goal` string, return 
+      true if you can swap any two letters in the `start` string so that the result is equal to the `goal` string. 
    */
    public static boolean testStrings(String start, String goal){
       if(start.length() != goal.length()){
@@ -108,7 +108,65 @@ public class StringProblems {
       return (set.size() == 2);
    }
    
+   /**CODING BAT : STRING-2*/
+   
+   /**
+      P5: Given s string, return the result string where for every char in the original string there are two chars   
+   */
+   public static String doubleChar(String str){
+      char bro = ' ';
+      StringBuilder sb = new StringBuilder();
+      for(int i=0; i<str.length(); i++){
+         char c = str.charAt(i);
+         bro = c;
+         sb.append(c).append(bro);   
+      }
+      return sb.toString();
+   }
+   
+   /**
+      p6: count `hi`. Return the number of times that "hi" appears
+   */
+   public static int countHi(String str){
+      int count = 0;
+      for(int i=0; i<str.length()-1; i++){
+         char c = str.charAt(i);
+         char d = str.charAt(i+1);
+         if(c == 'h' && d == 'i'){
+            count++;
+         }
+      }
+      return count;
+   }
+   
+   /**
+      Return true if the string "cat" and "dog" appears the same number of times in given string
+   */
+   public static boolean catDog(String str){
+      int catCount = 0;
+      int dogCount = 0;
+      for(int i=0; i<str.length(); i++){
+         char c = str.charAt(i);
+         if(c == 'c' || c == 'd'){
+            String sub1 = str.substring(i, i+3);
+            if(sub1.equals("cat")){
+               catCount++;
+            }
+            if(sub1.equals("dog")){
+               dogCount++;
+            }
+         }
+      }
+      return catCount == dogCount;
+   }
+   
 	public static void main(String[] args) {
+      String str = "1cat1cadodog";
+      System.out.println(catDog(str));
+      
+      
+   /** 
+   Exponent start-goal test cases 
       String start1 = "lhicl";
       String goal1 = "chill";
       
@@ -126,5 +184,7 @@ public class StringProblems {
       System.out.println(testStrings(start2, goal2));
       System.out.println(testStrings(start3, goal3));
       System.out.println(testStrings(start4, goal4));
+      
+      */
 	}
 }
