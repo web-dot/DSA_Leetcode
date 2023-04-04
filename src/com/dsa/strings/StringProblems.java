@@ -145,7 +145,7 @@ public class StringProblems {
    public static boolean catDog(String str){
       int catCount = 0;
       int dogCount = 0;
-      for(int i=0; i<str.length(); i++){
+      for(int i=0; i<str.length()-2; i++){
          char c = str.charAt(i);
          if(c == 'c' || c == 'd'){
             String sub1 = str.substring(i, i+3);
@@ -161,7 +161,7 @@ public class StringProblems {
    }
    
 	public static void main(String[] args) {
-      String str = "1cat1cadodog";
+      String str = "catxdogxdogxca";
       System.out.println(catDog(str));
       
       
