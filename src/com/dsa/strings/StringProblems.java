@@ -140,7 +140,7 @@ public class StringProblems {
    }
    
    /**
-      Return true if the string "cat" and "dog" appears the same number of times in given string
+      p7 : Return true if the string "cat" and "dog" appears the same number of times in given string
    */
    public static boolean catDog(String str){
       int catCount = 0;
@@ -160,10 +160,19 @@ public class StringProblems {
       return catCount == dogCount;
    }
    
-	public static void main(String[] args) {
-      String str = "catxdogxdogxca";
-      System.out.println(catDog(str));
+   /**
+      p8 : return the numebr of times that the string "code" anywhere in the given string.
+      except we'll accept any letter for the 'd', so "cope" and "cooe" count
+   */
+   public static int countCode(String str){
+      String match = "code";
       
+   }
+   
+   
+   
+	public static void main(String[] args) {
+     Syste
       
    /** 
    Exponent start-goal test cases 
