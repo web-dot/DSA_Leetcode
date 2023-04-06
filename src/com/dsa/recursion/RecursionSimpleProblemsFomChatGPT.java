@@ -57,7 +57,7 @@ public class RecursionSimpleProblemsFomChatGPT {
     
     /**
          5           // n = 5, initial call to the function
-         4           // n = 4, first recursive call to fibonacci(n-1)
+         4           // n = 4, first recursive call to fibonacci(n-1)                  
          3           // n = 3, second recursive call to fibonacci(n-1)
          2           // n = 2, third recursive call to fibonacci(n-1)
          1           // n = 1, fourth recursive call to fibonacci(n-1)
@@ -90,6 +90,19 @@ public class RecursionSimpleProblemsFomChatGPT {
          1           // n = 1, fourteenth recursive call to fibonacci(n-2)
          n2 = 1      // n2 = fibonnaci(n-2) where n = 2, returns 1
          fib = 2     // nthFib = n1 + n
+         
+         +-------------------------+
+         | fibonacci(0) : returns 0|
+         +-------------------------+
+         | fibonacci(1) : returns 1|
+         +-------------------------+
+         | fibonacci(2) : returns 1|
+         +-------------------------+
+         | fibonacci(3) : returns 2|
+         +-------------------------+
+         | fibonacci(4) : returns 3|
+         +-------------------------+
+
 
     */
     
