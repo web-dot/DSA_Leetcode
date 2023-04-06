@@ -24,6 +24,7 @@ public class RecursionSimpleProblemsFomChatGPT {
       }  
     }
     
+    /**sum of all the numbers from 1 to n*/
     public static int findSum(int num){
       int sum = 0;
       if(num == 1 ){
@@ -36,7 +37,63 @@ public class RecursionSimpleProblemsFomChatGPT {
       }
     }
     
+    /**write a recursive function that calculates the nth Fibonnaci number*/
+    
+    public static int fibonnaci(int n){
+      System.out.println(n);
+      if(n==0 || n==1){
+         return n;
+      }
+      else{
+         int n1 = fibonnaci(n-1);
+         System.out.println("n1 = " + n1);
+         int n2 = fibonnaci(n-2);
+         System.out.println("n2 = " + n2);
+         int nthFib = n1 + n2;
+         System.out.println("fib = " + nthFib);
+         return nthFib;
+      }  
+    }
+    
+    /**
+         5           // n = 5, initial call to the function
+         4           // n = 4, first recursive call to fibonacci(n-1)
+         3           // n = 3, second recursive call to fibonacci(n-1)
+         2           // n = 2, third recursive call to fibonacci(n-1)
+         1           // n = 1, fourth recursive call to fibonacci(n-1)
+         n1 = 1      // n1 = fibonnaci(n-1) where n = 2, returns 1
+         0           // n = 0, fifth recursive call to fibonacci(n-2)
+         n2 = 0      // n2 = fibonnaci(n-2) where n = 1, returns 0
+         fib = 1     // nthFib = n1 + n2, where n = 2, returns 1
+         n1 = 1      // n1 = fibonnaci(n-1) where n = 3, returns 1
+         1           // n = 1, sixth recursive call to fibonacci(n-2)
+         n2 = 1      // n2 = fibonnaci(n-2) where n = 2, returns 1
+         fib = 2     // nthFib = n1 + n2, where n = 3, returns 2
+         n1 = 2      // n1 = fibonnaci(n-1) where n = 4, returns 2
+         2           // n = 2, seventh recursive call to fibonacci(n-2)
+         1           // n = 1, eighth recursive call to fibonacci(n-2)
+         n1 = 1      // n1 = fibonnaci(n-1) where n = 2, returns 1
+         0           // n = 0, ninth recursive call to fibonacci(n-2)
+         n2 = 0      // n2 = fibonnaci(n-2) where n = 1, returns 0
+         fib = 1     // nthFib = n1 + n2, where n = 2, returns 1
+         n2 = 1      // n2 = fibonnaci(n-2) where n = 3, returns 1
+         fib = 3     // nthFib = n1 + n2, where n = 4, returns 3
+         n1 = 3      // n1 = fibonnaci(n-1) where n = 5, returns 3
+         3           // n = 3, tenth recursive call to fibonacci(n-2)
+         2           // n = 2, eleventh recursive call to fibonacci(n-2)
+         1           // n = 1, twelfth recursive call to fibonacci(n-2)
+         n1 = 1      // n1 = fibonnaci(n-1) where n = 2, returns 1
+         0           // n = 0, thirteenth recursive call to fibonacci(n-2)
+         n2 = 0      // n2 = fibonnaci(n-2) where n = 1, returns 0
+         fib = 1     // nthFib = n1 + n2, where n = 2, returns 1
+         n1 = 1      // n1 = fibonnaci(n-1) where n = 3, returns 1
+         1           // n = 1, fourteenth recursive call to fibonacci(n-2)
+         n2 = 1      // n2 = fibonnaci(n-2) where n = 2, returns 1
+         fib = 2     // nthFib = n1 + n
+
+    */
+    
 	public static void main(String[] args) {
-		findSum(5);
+		System.out.println(fibonnaci(5));
 	}
 }
