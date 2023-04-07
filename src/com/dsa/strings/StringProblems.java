@@ -166,13 +166,14 @@ public class StringProblems {
    */
    public static int countCode(String str){
       String match = "code";
-      
+      int index = str.indexOf('c');
+      return index;
    }
    
    
    
 	public static void main(String[] args) {
-     Syste
+     System.out.println(countCode("aaacodebbb"));
       
    /** 
    Exponent start-goal test cases 
