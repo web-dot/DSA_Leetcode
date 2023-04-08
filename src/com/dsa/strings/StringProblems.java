@@ -3,6 +3,8 @@ package com.dsa.strings;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
 
 public class StringProblems {
 
@@ -166,14 +168,23 @@ public class StringProblems {
    */
    public static int countCode(String str){
       String match = "code";
-      int index = str.indexOf('c');
-      return index;
+      int count = 0;
+      for(int i=0; i<str.length(); i++){
+         char c = str.charAt(i);
+         if(c == 'c'){
+            String sub = str.substring(i, i+4);
+            if(sub.equals(match)){
+               count++;
+            }
+         }
+      }
+      return count;
    }
    
    
    
 	public static void main(String[] args) {
-     System.out.println(countCode("aaacodebbb"));
+     System.out.println(countCode("aaacodebbbcode"));
       
    /** 
    Exponent start-goal test cases 
