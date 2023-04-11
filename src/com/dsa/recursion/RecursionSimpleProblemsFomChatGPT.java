@@ -106,7 +106,29 @@ public class RecursionSimpleProblemsFomChatGPT {
 
     */
     
+    
+    /**reverse a linked list*/
+    public static reverseList(Node head){
+      
+    }
+    
 	public static void main(String[] args) {
-		System.out.println(fibonnaci(5));
+		Node n1 = new Node(10);
+      Node n2 = new Node(20);
+      Node n3 = new Node(30);
+      
+      n1.next = n2;
+      n2.next = n3;
+      reverseList(n1);
+      
 	}
+}
+
+class Node{
+   int val;
+   Node next;
+   public Node(int val){
+      this.val = val;
+      this.next = null;
+   }
 }
