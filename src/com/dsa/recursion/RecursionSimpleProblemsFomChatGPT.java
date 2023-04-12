@@ -107,7 +107,7 @@ public class RecursionSimpleProblemsFomChatGPT {
     */
     
     
-    /**reverse a linked list*/
+    /**reverse a linked list -> iterative*/
     public static Node reverseList(Node head){
       Node prev = null;
       Node next = null;
@@ -122,6 +122,16 @@ public class RecursionSimpleProblemsFomChatGPT {
       return head;
     }
     
+    /**reverse a linked list -> recursively*/
+    public static Node reverse(Node curr, Node prev){  
+      if(curr == null){
+         return prev;
+      }
+      Node next = curr.next;
+      curr.next = prev;
+      return reverse(next, curr);
+    }
+    
 	public static void main(String[] args) {
 		Node n1 = new Node(10);
       Node n2 = new Node(20);
@@ -129,8 +139,9 @@ public class RecursionSimpleProblemsFomChatGPT {
       
       n1.next = n2;
       n2.next = n3;
-      Node head = reverseList(n1);
-      Node curr = head;
+      Node n = reverse(n2, n1);
+      Node curr = n;
+      
       while(curr != null){
          System.out.println(curr.val);
         curr = curr.next;  
