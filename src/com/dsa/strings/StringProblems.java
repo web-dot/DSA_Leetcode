@@ -168,14 +168,18 @@ public class StringProblems {
    */
    public static int countCode(String str){
       String match = "code";
+      String preSub = "co";
       int count = 0;
-      for(int i=0; i<str.length(); i++){
+      for(int i=0; i<str.length()-3; i++){
          char c = str.charAt(i);
+         String sub1 = "";
+         String sub2 = "";
          if(c == 'c'){
-            String sub = str.substring(i, i+4);
-            if(sub.equals(match)){
-               count++;
-            }
+            sub1 = str.substring(i, i+2);
+            sub2 = str.substring(i+3, i+4);
+         }
+         if(sub1.equals(preSub) && sub2.equals("e")){
+            count++;
          }
       }
       return count;
@@ -184,7 +188,7 @@ public class StringProblems {
    
    
 	public static void main(String[] args) {
-     System.out.println(countCode("aaacodebbbcode"));
+     System.out.println(countCode("aaacodebbbcodebbfdcope"));
       
    /** 
    Exponent start-goal test cases 
