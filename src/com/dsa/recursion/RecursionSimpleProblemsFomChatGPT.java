@@ -123,6 +123,8 @@ public class RecursionSimpleProblemsFomChatGPT {
     }
     
     /**reverse a linked list -> recursively*/
+    
+    /**running infinite: refactor after understanding correctly*/
     public static Node reverse(Node curr, Node prev){  
       if(curr == null){
          return prev;
@@ -132,20 +134,26 @@ public class RecursionSimpleProblemsFomChatGPT {
       return reverse(next, curr);
     }
     
-	public static void main(String[] args) {
-		Node n1 = new Node(10);
-      Node n2 = new Node(20);
-      Node n3 = new Node(30);
-      
-      n1.next = n2;
-      n2.next = n3;
-      Node n = reverse(n2, n1);
-      Node curr = n;
-      
-      while(curr != null){
-         System.out.println(curr.val);
-        curr = curr.next;  
+    /**
+    fibonnachi
+      each number is the sum of two prceeding numbers.
+      given n calculate F(n)
+    */
+    public static int fib(int n){
+      if(n == 0){
+         return 0;
       }
+      if(n == 1){
+         return 1;
+      }
+      return (fib(n-1) + fib(n-2));
+    }
+    
+    
+    
+	public static void main(String[] args) {
+	    int x = 5;
+      System.out.println(fib(x));
 	}
 }
 
