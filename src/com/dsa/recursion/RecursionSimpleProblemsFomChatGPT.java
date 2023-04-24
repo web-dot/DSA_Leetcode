@@ -149,11 +149,36 @@ public class RecursionSimpleProblemsFomChatGPT {
       return (fib(n-1) + fib(n-2));
     }
     
+    /**
+      factorial of n
+    */
+    public static int factorialOfNum(int n){
+      if(n == 0){
+         return 1;
+      }
+      else{
+         return n * factorialOfNum(n - 1);
+      }
+    }
     
-    
+    /**
+      Given a String, write a recursive function to check if it is a plaindrome
+    */
+    public static boolean isPalindrome(String str){
+      if(str.length() == 0 || str.length() == 1){
+         return true;
+      }
+      if(str.charAt(0) == str.charAt(str.length()-1)){
+         return isPalindrome(str.substring(0, str.length()));
+      }
+      else{
+         return false;
+      }
+    }
+
 	public static void main(String[] args) {
-	    int x = 5;
-      System.out.println(fib(x));
+	     String str = "madam";
+        System.out.println(isPalindrome(str));
 	}
 }
 

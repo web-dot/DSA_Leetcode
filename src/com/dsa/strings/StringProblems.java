@@ -185,11 +185,22 @@ public class StringProblems {
       return count;
    }
    
+   /**
+      p9 :  given two strings, return true if either of the strings appear at the very end of the other string.
+            ignore case 
+   */
+   public static boolean endOther(String a, String b){
+      int l1 = a.length();
+      String reversed = new StringBuilder(b).reverse();
+      String backToFront = reversed.substring(0, l1);
+      return ;
+   }
    
    
 	public static void main(String[] args) {
-     System.out.println(countCode("aaacodebbbcodebbfdcope"));
-      
+   
+     endOther("abc", "Hiabc");
+     
    /** 
    Exponent start-goal test cases 
       String start1 = "lhicl";
