@@ -191,9 +191,9 @@ public class StringProblems {
    */
    public static boolean endOther(String a, String b){
       int l1 = a.length();
-      String reversed = new StringBuilder(b).reverse();
+      String reversed = new StringBuilder(b).reverse().toString();
       String backToFront = reversed.substring(0, l1);
-      return ;
+      return false;
    }
    
    

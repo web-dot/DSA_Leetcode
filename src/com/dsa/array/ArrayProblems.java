@@ -804,6 +804,20 @@ public class ArrayProblems {
     }
 
     
+    /**
+     * you are given a m*n matrix grid, consisting of positive integers
+     * perform the following operation until the grid becomes empty
+     * 
+     * 1. delete the element with the greatest value from each row, if multiple such elements exist
+     * delete any of them
+     * 2. Add the maximum of deleted elements to the answer.
+     * */
+    public static int deleteGreatestValue(int[][] grid) {
+    	
+    	return -1;
+    }
+    
+    
     
 
 	public static void main(String[] args) {
