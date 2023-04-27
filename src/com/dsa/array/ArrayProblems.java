@@ -813,7 +813,13 @@ public class ArrayProblems {
      * 2. Add the maximum of deleted elements to the answer.
      * */
     public static int deleteGreatestValue(int[][] grid) {
-    	
+    	for(int i=0; i<grid.length; i++) {
+    		for(int j=0; j<grid[i].length; j++) {
+    			//System.out.print(i + " : " + j + " -> ");
+    			System.out.print(grid[i][j] + ", ");
+    		}
+    		System.out.println();
+    	}
     	return -1;
     }
     
@@ -821,7 +827,11 @@ public class ArrayProblems {
     
 
 	public static void main(String[] args) {
-      int[] c = {1, 2, 3, 4, 100};
-      System.out.println(centeredAverage(c));
+      int[][] matrix = new int[3][2];
+      
+      matrix[0] = new int[] {1,3};
+      matrix[1] = new int[] {2,3};
+      matrix[2] = new int[] {4,1};
+      deleteGreatestValue(matrix);
  	}
 }
