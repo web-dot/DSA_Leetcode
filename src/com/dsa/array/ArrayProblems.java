@@ -814,11 +814,18 @@ public class ArrayProblems {
      * */
     public static int deleteGreatestValue(int[][] grid) {
     	for(int i=0; i<grid.length; i++) {
+    		int max = 0;
+    		int maxIndex = -1;
     		for(int j=0; j<grid[i].length; j++) {
-    			//System.out.print(i + " : " + j + " -> ");
-    			System.out.print(grid[i][j] + ", ");
+    			int val = grid[i][j];
+    			if(val > max) {
+    				max = val;
+    				maxIndex = j;
+    			}
+    			grid[i][maxIndex] = 0;
     		}
-    		System.out.println();
+    		System.out.println(max);
+    		
     	}
     	return -1;
     }
@@ -827,11 +834,10 @@ public class ArrayProblems {
     
 
 	public static void main(String[] args) {
-      int[][] matrix = new int[3][2];
+      int[][] matrix = new int[2][2];
       
-      matrix[0] = new int[] {1,3};
-      matrix[1] = new int[] {2,3};
-      matrix[2] = new int[] {4,1};
+      matrix[0] = new int[] {1,2,4};
+      matrix[1] = new int[] {3,3,1};
       deleteGreatestValue(matrix);
  	}
 }
