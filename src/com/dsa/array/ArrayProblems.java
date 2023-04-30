@@ -813,21 +813,32 @@ public class ArrayProblems {
      * 2. Add the maximum of deleted elements to the answer.
      * */
     public static int deleteGreatestValue(int[][] grid) {
+    	int finalMax = 0;
+    	int grtMax = 0;
+    	boolean allZeros = true;
     	for(int i=0; i<grid.length; i++) {
     		int max = 0;
-    		int maxIndex = -1;
+    		int index = 0;
+    		allZeros = true;
     		for(int j=0; j<grid[i].length; j++) {
-    			int val = grid[i][j];
-    			if(val > max) {
-    				max = val;
-    				maxIndex = j;
+    			if(grid[i][j] > max) {
+    				max = grid[i][j];
+    				index = j;
     			}
-    			grid[i][maxIndex] = 0;
+    			if(grid[i][j] != 0) {
+    				allZeros = false;
+    			}
     		}
-    		System.out.println(max);
-    		
+    		if(allZeros) {
+    			return 0;
+    		}
+    		if(max > grtMax) {
+    			grtMax = max;
+    		}
+    		grid[i][index] = 0;
     	}
-    	return -1;
+    	finalMax = finalMax + grtMax;
+    	return finalMax + deleteGreatestValue(grid);
     }
     
     
@@ -838,6 +849,7 @@ public class ArrayProblems {
       
       matrix[0] = new int[] {1,2,4};
       matrix[1] = new int[] {3,3,1};
-      deleteGreatestValue(matrix);
+      int n = deleteGreatestValue(matrix);
+      System.out.println(n);
  	}
 }
