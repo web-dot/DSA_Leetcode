@@ -805,6 +805,8 @@ public class ArrayProblems {
 
     
     /**
+     * P28 : LEETCODE 2500 
+     * 
      * you are given a m*n matrix grid, consisting of positive integers
      * perform the following operation until the grid becomes empty
      * 
@@ -841,15 +843,39 @@ public class ArrayProblems {
     	return finalMax + deleteGreatestValue(grid);
     }
     
+    /**
+     * P29 : LEET-CODE 1572
+     * given a square matrix mat, return the sum of the matrix diagonals,
+     * only include the sum of all the elements on the primary diagonal and
+     * all the elements on the secondary diagonal that are not part of the 
+     * primary diagonal. 
+     * 
+     * */
+    public static int diagonalSum(int[][] mat) {
+    	int k = 0;
+    	int l = mat.length-1;
+    	int sum = 0;
+    	int dlen = 0;
+    	for(int i=0; i<mat.length; i++) {
+			sum += mat[i][k] + mat[i][l];
+			k++;
+			l--;
+			dlen++;
+    	}
+    	int midind = 0;
+    	if(dlen%2 != 0) {
+    		midind = dlen / 2;
+    		sum = sum - mat[midind][midind];
+    	}
+    	return sum;
+    }
+    
     
     
 
 	public static void main(String[] args) {
-      int[][] matrix = new int[2][2];
-      
-      matrix[0] = new int[] {1,2,4};
-      matrix[1] = new int[] {3,3,1};
-      int n = deleteGreatestValue(matrix);
+      int[][] matrix = new int[][] {{1,2,3}, {4,5,6}, {7,8,9}};
+      int n = diagonalSum(matrix);
       System.out.println(n);
  	}
 }
