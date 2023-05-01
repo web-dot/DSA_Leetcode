@@ -1,8 +1,11 @@
 package com.dsa.strings;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -239,6 +242,7 @@ public class StringProblems {
 			}
 		}
 
+		//time complexity O(n), 
 		for(Map.Entry<Character, Integer> entry : cmap1.entrySet()) {
 			char c = entry.getKey();
 			int count1 = entry.getValue();
@@ -249,10 +253,36 @@ public class StringProblems {
 		}
 		return true;
 	}
+	
+	/**
+	 * P11 CGPT : write a function to find the longest common prefix string amongst an 
+	 * array of strings
+	 * */
+	public static String longestPrefix(String[] arr) {
+		List<String> list = new ArrayList<>(Arrays.asList(arr));
+		Collections.sort(list, (s1, s2) -> s1.length() - s2.length());
+		System.out.println(list);
+		int k = 2;
+		boolean isSub = true;
+		for(int i=0; i<list.size(); i++) {
+			String sub = list.get(i).substring(0, k);
+			for(int j=i+1; j<list.size(); j++) {
+				String s = list.get(j);
+				if(!sub.equals(s.substring(0, k))) {
+					isSub = false;
+					break;
+				}
+				k++;
+			}
+		}
+		return "test";
+	}
+	
 
 	public static void main(String[] args) {
 
-		System.out.println(anagrams2("listen", "silent"));
+		String[] s2 = {"flower","flow","flight"};
+		System.out.println(longestPrefix(s2));
 
 		/**
 		 * Exponent start-goal test cases String start1 = "lhicl"; String goal1 =
