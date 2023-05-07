@@ -898,10 +898,38 @@ public class ArrayProblems {
     	return count;
     }
     
+    /**
+     * P32 : LC 2553 : separate the digits in an array
+     * 
+     * given an array of positive integers nums, return an array answer that consists of
+     * the digits of each integer in nums after separating them in `the same order` they 
+     * appear in nums
+     * */
+    public static int[] separateDigits(int[] nums) {
+    	List<Integer> list = new ArrayList<>();
+    	for(int i : nums) {
+    		String s = Integer.toString(i);
+    		if(s.length() > 1) {
+    			String[] arr = s.split("");
+    			for(String str : arr) {
+    				list.add(Integer.parseInt(str));
+    			}
+    		}
+    		else
+    			list.add(i);
+    		
+    	}
+    	int[] intArr = new int[list.size()];
+    	for(int i=0; i<list.size(); i++) {
+    		intArr[i] = list.get(i); 
+    	}
+    	return intArr;
+    }
+    
+    
 
 	public static void main(String[] args) {
-		int[] nums = new int[] {3,1,2,2,2,1,3};
-		int k = 2;
-		System.out.println(countPairs(nums, k));
+		int[] nums = new int[] {13,25,83,77};
+		System.out.println(Arrays.toString(separateDigits(nums)));
  	}
 }
