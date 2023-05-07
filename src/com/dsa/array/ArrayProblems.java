@@ -879,8 +879,29 @@ public class ArrayProblems {
     	return (a-1) * (b-1);
     }
     
+    /**
+     * P31 : LC 2176 : count equal and divisible pairs in array
+     * 
+     * Given a 0-indexed integer array nums of length n and an integer k, return the number 
+     * of pairs (i, j) where 0 <= i < j < n, such that nums[i] == nums[j] and (i * j) is divisible 
+     * by k
+     * */
+    public static int countPairs(int[] nums, int k) {
+    	int count = 0;
+    	for(int i=0; i<nums.length; i++) {
+    		for(int j=i+1; j<nums.length; j++) {
+    			if(nums[i] == nums[j] && ((i*j)%k==0)) {
+    				count++;
+    			}
+    		}
+    	}
+    	return count;
+    }
+    
 
 	public static void main(String[] args) {
-      System.out.println(maxProduct(new int[] {1,3,7,9}));
+		int[] nums = new int[] {3,1,2,2,2,1,3};
+		int k = 2;
+		System.out.println(countPairs(nums, k));
  	}
 }
