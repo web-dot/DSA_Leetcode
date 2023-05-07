@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Set;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
 public class ArrayProblems {
 	
 	
@@ -870,12 +869,18 @@ public class ArrayProblems {
     	return sum;
     }
     
-    
+    /**
+     * P30 : LEETCODE 1464 : Maximum product of two elements in array
+     * */
+    public static int maxProduct(int[] arr) {
+    	Arrays.sort(arr);
+    	int a = arr[arr.length-1];
+    	int b = arr[arr.length-2];
+    	return (a-1) * (b-1);
+    }
     
 
 	public static void main(String[] args) {
-      int[][] matrix = new int[][] {{1,2,3}, {4,5,6}, {7,8,9}};
-      int n = diagonalSum(matrix);
-      System.out.println(n);
+      System.out.println(maxProduct(new int[] {1,3,7,9}));
  	}
 }
