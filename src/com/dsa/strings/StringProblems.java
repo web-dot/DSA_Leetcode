@@ -200,7 +200,7 @@ public class StringProblems {
 	}
 
 	/**
-	 * P10 CGPT : given two strings write a function to check if they are nagrams of
+	 * P10 CGPT : given two strings write a function to check if they are anagrams of
 	 * each other
 	 */
 
@@ -255,29 +255,25 @@ public class StringProblems {
 	}
 	
 	/**
-	 * P11 CGPT : write a function to find the longest common prefix string amongst an 
+	 * P11 | LC 14 : write a function to find the longest common prefix string amongst an 
 	 * array of strings
 	 * */
 	public static String longestPrefix(String[] arr) {
-		List<String> list = new ArrayList<>(Arrays.asList(arr));
-		Collections.sort(list, (s1, s2) -> s1.length() - s2.length());
-		System.out.println(list);
-		int k = 2;
-		boolean isSub = true;
-		for(int i=0; i<list.size(); i++) {
-			String sub = list.get(i).substring(0, k);
-			for(int j=i+1; j<list.size(); j++) {
-				String s = list.get(j);
-				if(!sub.equals(s.substring(0, k))) {
-					isSub = false;
-					break;
+		//flower","flow","flight
+		if(arr == null || arr.length == 0) {
+			return "";
+		}
+		String prefix = arr[0];
+		for(int i=1; i<arr.length; i++) {
+			while(arr[i].indexOf(prefix) != 0) {
+				prefix = prefix.substring(0, prefix.length()-1);
+				if(prefix.isEmpty()) {
+					return "";
 				}
-				k++;
 			}
 		}
-		return "test";
+		return prefix;
 	}
-	
 
 	public static void main(String[] args) {
 

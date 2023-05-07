@@ -927,9 +927,35 @@ public class ArrayProblems {
     }
     
     
+    //optimizing
+    public static int[] separateDigits2(int[] nums) {
+    	List<Integer> list = new ArrayList<>();
+    	for(int i : nums) {
+    		if(i > 9) {
+    			int rem = 0;
+    			while(i > 0) {
+    				rem = i % 10;
+    				i = i/10;
+    				if(i != 0) {
+    					list.add(i);
+    					list.add(rem);
+    				}
+    			}
+    		}
+    		else
+    			list.add(i);
+    	}
+    	int[] arr = new int[list.size()];
+    	for(int i=0; i<list.size(); i++) {
+    		arr[i] = list.get(i);
+    	}
+    	return arr;
+    }
+    
+    
 
 	public static void main(String[] args) {
-		int[] nums = new int[] {13,25,83,77};
-		System.out.println(Arrays.toString(separateDigits(nums)));
+		int[] nums = new int[] {7,1,3,9};
+		System.out.println(Arrays.toString(separateDigits2(nums)));
  	}
 }
