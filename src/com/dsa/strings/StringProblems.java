@@ -274,11 +274,25 @@ public class StringProblems {
 		}
 		return prefix;
 	}
+	
+	/**
+	 * find longest prefix : 
+	 * */
+	public static String findLongestPrefix(String[] arr) {
+		
+		String s1 = arr[0];
+		for(int i=0; i<arr.length; i++) {
+			if(arr[i].indexOf(s1) != 0) {
+				System.out.println(arr[i]);
+			}
+		}
+		return null;
+	}
 
 	public static void main(String[] args) {
 
 		String[] s2 = {"flower","flow","flight"};
-		System.out.println(longestPrefix(s2));
+		System.out.println(findLongestPrefix(s2));
 
 		/**
 		 * Exponent start-goal test cases String start1 = "lhicl"; String goal1 =
