@@ -279,20 +279,53 @@ public class StringProblems {
 	 * find longest prefix : 
 	 * */
 	public static String findLongestPrefix(String[] arr) {
-		
-		String s1 = arr[0];
+		if(arr == null || arr.length == 0) {
+			return "";
+		}
+		String prefix = arr[0];
 		for(int i=0; i<arr.length; i++) {
-			if(arr[i].indexOf(s1) != 0) {
-				System.out.println(arr[i]);
+			while(arr[i].indexOf(prefix) != 0) {
+				prefix = prefix.substring(0, prefix.length()-1);
+				if(prefix.isEmpty()) {
+					return "";
+				}
 			}
 		}
-		return null;
+		return prefix;
 	}
+	
+	
+	/**
+	 * given a string find the length of the longest substring without repeating 
+	 * characters
+	 * */
+	public static int lengthOfLongestSubstring(String s) {
+		String[] arr = s.split("");
+		int count = 0;
+		int start = 0;
+		String sub = "";
+		for(int i=start; i<arr.length-1; i++) {
+			if(arr[i].equals(arr[i+1])) {
+				count = 0;
+				start = i+1;
+				continue;
+			}
+			else {
+				count++;
+				sub = sub + arr[i];
+				if(sub.contains(arr[i])) {
+					break;
+				}
+			}
+		}
+		return count;
+	}
+	
 
 	public static void main(String[] args) {
 
-		String[] s2 = {"flower","flow","flight"};
-		System.out.println(findLongestPrefix(s2));
+		String s2 = "abcabcbb";
+		System.out.println(lengthOfLongestSubstring(s2));
 
 		/**
 		 * Exponent start-goal test cases String start1 = "lhicl"; String goal1 =
