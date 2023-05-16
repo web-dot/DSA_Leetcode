@@ -301,24 +301,8 @@ public class StringProblems {
 	 * */
 	public static int lengthOfLongestSubstring(String s) {
 		String[] arr = s.split("");
-		int count = 0;
-		int start = 0;
-		String sub = "";
-		for(int i=start; i<arr.length-1; i++) {
-			if(arr[i].equals(arr[i+1])) {
-				count = 0;
-				start = i+1;
-				continue;
-			}
-			else {
-				count++;
-				sub = sub + arr[i];
-				if(sub.contains(arr[i])) {
-					break;
-				}
-			}
-		}
-		return count;
+		boolean flag = false;
+		//abcabcbb
 	}
 	
 
