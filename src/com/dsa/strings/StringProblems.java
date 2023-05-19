@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+
 public class StringProblems {
 
 	// Easy
@@ -300,9 +301,27 @@ public class StringProblems {
 	 * characters
 	 * */
 	public static int lengthOfLongestSubstring(String s) {
-		String[] arr = s.split("");
-		boolean flag = false;
-		//abcabcbb
+		Set<Character> set = new HashSet<>();
+      int left = 0;
+      int right = 0;
+      int maxLength = 0;
+      int start = 0;
+      
+      while(right<s.length()){
+         if(!set.contains(s.charAt(right))){
+            set.add(s.charAt(right));
+            if(right-left+1 > maxLength){
+               maxLength = right - left + 1;
+               start = left;
+            }
+            right++;   
+         }
+         else{
+            set.remove(s.charAt(left));
+            left++;
+         }
+      }
+      return s.substring(start, start + maxLength).length();
 	}
 	
 
