@@ -1,5 +1,7 @@
 package com.dsa.search;
 
+import java.util.Arrays;
+
 public class SearchAlgos {
 	
 	
@@ -23,6 +25,8 @@ public class SearchAlgos {
 	 * */
 	
 	public static int binarySearch(int[] arr, int num) {
+		// for binary-search, the array must be sorted
+		Arrays.sort(arr);
 		int start = 0;
 		int end = arr.length-1;
 		while(start <= end) {
