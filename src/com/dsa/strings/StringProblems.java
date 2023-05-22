@@ -304,11 +304,15 @@ public class StringProblems {
 	/**
 	 *	the approach i took 
 	 * */
-	public static String findLongestSubUsingMy(String str) {
+	public static int findLongestSubUsingMy(String s) {
 		List<String> uniqueSubList = new ArrayList<>();
-		String[] arr = str.split("");
+		String[] arr = s.split("");
 		int start = 0;
 		String uniqueSub = "";
+		if(s.isEmpty()) {
+			return 0;
+		}
+		else {
 		for(int i=0; i<arr.length; i++) {
 			String currentChar = arr[i];
 			if(!uniqueSub.contains(arr[i])) {
@@ -317,8 +321,9 @@ public class StringProblems {
 			else {
 				uniqueSubList.add(uniqueSub);
 				start += uniqueSub.indexOf(currentChar) + 1;
-				uniqueSub = str.substring(start, i+1);
+				uniqueSub = s.substring(start, i+1);
 			}
+		}
 		}
 		uniqueSubList.add(uniqueSub);
 		String longestSub = "";
@@ -327,7 +332,7 @@ public class StringProblems {
 				longestSub = substring;
 			}
 		}
-		return longestSub;
+		return longestSub.length();
 	}
 	
 	
