@@ -302,7 +302,21 @@ public class StringProblems {
 	 * */
 	
 	/**
-	 *	the approach i took 
+	 *	okay, to solve this, the approach that i am thinking is, that:
+	 *
+	 *	1. split the string into a string array.
+	 *	2. create a variable `start` and set to 0 and `sub` and set to a empty string 
+	 *	3. iterate the array and check if `sub` contains the element
+	 * 	4. if it does not, i will append to it.
+	 * 	5. else, means the i have found a element that is a duplicate, in that case,
+	 * 		a. add `sub` to a List of strings called `subList`
+	 * 		b. set `start` to the duplicate element index
+	 * 		c. reset the variable `sub`(sub = s.substring(start, i+1))
+	 * 	6. outside the iteration, i will get hold of the longest string in `subList`,
+	 * 		and return the length.
+	 * 
+	 * Complexity = O(n)
+	 * 
 	 * */
 	public static int findLongestSubUsingMy(String s) {
 		List<String> uniqueSubList = new ArrayList<>();
