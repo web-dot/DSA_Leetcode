@@ -300,13 +300,44 @@ public class StringProblems {
 	 * given a string find the length of the longest substring without repeating 
 	 * characters
 	 * */
+	
+	/**
+	 *	the approach i took 
+	 * */
+	public static String findLongestSubUsingMy(String str) {
+		List<String> uniqueSubList = new ArrayList<>();
+		String[] arr = str.split("");
+		int start = 0;
+		String uniqueSub = "";
+		for(int i=0; i<arr.length; i++) {
+			String currentChar = arr[i];
+			if(!uniqueSub.contains(arr[i])) {
+				uniqueSub += currentChar; 
+			}
+			else {
+				uniqueSubList.add(uniqueSub);
+				start += uniqueSub.indexOf(currentChar) + 1;
+				uniqueSub = str.substring(start, i+1);
+			}
+		}
+		uniqueSubList.add(uniqueSub);
+		String longestSub = "";
+		for(String substring : uniqueSubList) {
+			if(substring.length() > longestSub.length()) {
+				longestSub = substring;
+			}
+		}
+		return longestSub;
+	}
+	
+	
 	public static int lengthOfLongestSubstring(String s) {
 		Set<Character> set = new HashSet<>();
       int left = 0;
       int right = 0;
       int maxLength = 0;
       int start = 0;
-      
+      // abcabcbb
       while(right<s.length()){
          if(!set.contains(s.charAt(right))){
             set.add(s.charAt(right));
@@ -328,7 +359,7 @@ public class StringProblems {
 	public static void main(String[] args) {
 
 		String s2 = "abcabcbb";
-		System.out.println(lengthOfLongestSubstring(s2));
+		System.out.println(findLongestSubUsingMy(s2));
 
 		/**
 		 * Exponent start-goal test cases String start1 = "lhicl"; String goal1 =
