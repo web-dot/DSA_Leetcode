@@ -315,7 +315,7 @@ public class StringProblems {
 	 * 	6. outside the iteration, i will get hold of the longest string in `subList`,
 	 * 		and return the length.
 	 * 
-	 * Complexity = O(n)
+	 * Complexity = O(n) :|
 	 * 
 	 * */
 	public static int findLongestSubUsingMy(String s) {
@@ -348,6 +348,57 @@ public class StringProblems {
 		}
 		return longestSub.length();
 	}
+	
+	
+	/**
+	 * Brute force approach -
+	 *  
+	 * brute force approach for finding the longest substring without reapeating character
+	 * would involve checking all possible substrings in the input string and determining 
+	 * if each substring has unique characters.
+	 * 
+	 * 	-> iterate through all possible starting indices of the substring
+	 * 	-> for each starting index, iterate through all possible ending indices of the substring
+	 * 	-> check if the substring from starting index to the ending index(inclusive) has unique character
+	 * 	-> if the substring has unique character and its length is greater than `maxLength`, update `maxLenght` and start
+	 * 	-> repeat 2-5 untill all the substrings are checked 
+	 * 	-> extract longest substring from input string using `start` and `maxLength`
+	 * 	
+	 * complexity - O(n^3) :(
+	 * 
+	 * */
+	public static int findLongestSubByBrute(String s) {
+		int n = s.length();
+		int maxLength = 0;
+		int start = 0;
+		
+		for(int i=0; i<n; i++) {
+			for(int j=0; j<n; j++) {
+				if(hasUniqueCharacters(s, i, j)) {
+					int length = j - i + 1;
+					if(length > maxLength) {
+						maxLength = length;
+						start = i;
+					}
+				}
+			}
+		}
+		return s.substring(start, start + maxLength).length();
+	}
+	
+	public static boolean hasUniqueCharacters(String s, int start, int end) {
+		Set<Character> set = new HashSet<>();
+		for(int i=start; i<=end; i++) {
+			char c = s.charAt(i);
+			if(set.contains(c)) {
+				return false;
+			}
+			set.add(c);
+		}
+		return true;
+	}
+	
+	
 	
 	
 	public static int lengthOfLongestSubstring(String s) {
