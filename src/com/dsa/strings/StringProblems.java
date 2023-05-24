@@ -386,6 +386,13 @@ public class StringProblems {
 		return s.substring(start, start + maxLength).length();
 	}
 	
+	/**
+	 * Optimizing the brute force solution:
+	 * 
+	 * 
+	 * 
+	 * */
+	
 	public static boolean hasUniqueCharacters(String s, int start, int end) {
 		Set<Character> set = new HashSet<>();
 		for(int i=start; i<=end; i++) {
