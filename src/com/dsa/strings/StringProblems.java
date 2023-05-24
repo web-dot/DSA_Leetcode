@@ -389,9 +389,32 @@ public class StringProblems {
 	/**
 	 * Optimizing the brute force solution:
 	 * 
-	 * 
+	 * To optimize the brute force solution a `sliding window` approach is used
+	 * with two pointers, `start` and `end` to represent the current substring. 		
 	 * 
 	 * */
+	public static int findLongestSubBySlidingWindow(String s) {
+		int n = s.length();
+		int maxLength = 0;
+		int start = 0;
+		
+		int[] charCount = new int[128]; // Assuming ASCII character
+		
+		for(int end=0; end<n; end++) {
+			char currentChar = s.charAt(end);
+			charCount[currentChar]++;
+			while(charCount[currentChar] > 1) {
+				char startChar = s.charAt(start);
+				charCount[startChar]--;
+				start++;
+			}
+			maxLength = Math.max(maxLength, end - start + 1);
+		}
+		return maxLength;
+	}
+	
+	
+	
 	
 	public static boolean hasUniqueCharacters(String s, int start, int end) {
 		Set<Character> set = new HashSet<>();
@@ -436,7 +459,7 @@ public class StringProblems {
 	public static void main(String[] args) {
 
 		String s2 = "abcabcbb";
-		System.out.println(findLongestSubUsingMy(s2));
+		System.out.println(findLongestSubBySlidingWindow(s2));
 
 		/**
 		 * Exponent start-goal test cases String start1 = "lhicl"; String goal1 =
