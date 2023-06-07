@@ -10,6 +10,7 @@ public class AngelLeonardProblems {
 
 	
 	// counting duplicate characters
+	
 	public static Map<Character, Integer> countDuplicatesChars(String str){
 		Map<Character, Integer> result = new HashMap<>();
 		for(int i=0; i<str.length(); i++) {
@@ -43,6 +44,12 @@ public class AngelLeonardProblems {
 		*/
 		
 	}
+	
+	
+	
+	
+	
+	
 	
 	public static void main(String[] args) {
 		System.out.println(countDuplicateCharsUsingStream("programming"));

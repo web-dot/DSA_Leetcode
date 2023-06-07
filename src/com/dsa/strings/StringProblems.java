@@ -455,11 +455,30 @@ public class StringProblems {
       return s.substring(start, start + maxLength).length();
 	}
 	
+	
+	/**
+	 * REPLACE VOWELS IN A STRING
+	 * */
+	private static final String VOWEL_STRING = "aeiou";
+	public static String replaceVowels(String str) {
+		if(str.isEmpty()) {
+			return "";
+		}
+		char[] carr = str.toCharArray();
+		for(int i=0; i<carr.length; i++) {
+			char ch = carr[i];
+			if(VOWEL_STRING.contains(String.valueOf(ch))) {
+				str = str.replace(String.valueOf(ch), ""); 
+			}
+		}
+		return str;
+	}
+	
 
 	public static void main(String[] args) {
 
 		String s2 = "abcabcbb";
-		System.out.println(findLongestSubBySlidingWindow(s2));
+		System.out.println(replaceVowels("Code"));
 
 		/**
 		 * Exponent start-goal test cases String start1 = "lhicl"; String goal1 =
