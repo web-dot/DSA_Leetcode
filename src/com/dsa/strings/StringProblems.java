@@ -464,6 +464,7 @@ public class StringProblems {
 		if(str.isEmpty()) {
 			return "";
 		}
+		
 		char[] carr = str.toCharArray();
 		for(int i=0; i<carr.length; i++) {
 			char ch = carr[i];
