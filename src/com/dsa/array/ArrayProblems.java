@@ -952,10 +952,32 @@ public class ArrayProblems {
     	return arr;
     }
     
+    /**
+     * ARR 1 : given a array of integers and a target, return indices of two elements from 
+     * the array that sum up to the target
+     * */
+    public static int[] twoSum(int nums[], int target) {
+    	int[] indices = new int[2];
+    	for(int i=0; i<nums.length; i++) {
+    		if(i < target) {    			
+    			for(int j = i+1; j<nums.length; j++) {
+    				if(nums[i] + nums[j] == target) {
+    					indices[0] = i;
+    					indices[1] = j;
+    				}
+    			}
+    		}
+    	}
+    	return indices;
+    }
+    
+    
+    
     
 
 	public static void main(String[] args) {
-		int[] nums = new int[] {7,1,3,9};
-		System.out.println(Arrays.toString(separateDigits2(nums)));
+		int[] nums = new int[] {0,4,3,0};
+		int[] r = twoSum(nums, 0);
+		System.out.println(Arrays.toString(r));
  	}
 }
