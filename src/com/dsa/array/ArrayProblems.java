@@ -971,13 +971,26 @@ public class ArrayProblems {
     	return indices;
     }
     
+    /**
+     * P 33 : LC : ARR : 2652
+     * 
+     * Given a positive integer n, return the sum of all the numbers in the range [1, n]
+     * inclusive, which are divisible by 3,5 or 7
+     * */
+    public static int sumOfMultiples(int n) {
+    	int sum = 0;
+    	for(int i=1; i<=n; i++) {
+    		if(i%3==0 || i%5==0 || i%7==0) {
+    			sum += i;
+    		}
+    	}
+    	return sum;
+    }
     
     
     
 
 	public static void main(String[] args) {
-		int[] nums = new int[] {0,4,3,0};
-		int[] r = twoSum(nums, 0);
-		System.out.println(Arrays.toString(r));
+		System.out.println(sumOfMultiples(10));
  	}
 }
