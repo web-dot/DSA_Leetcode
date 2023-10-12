@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.concurrent.atomic.AtomicInteger;
 public class ArrayProblems {
 	
 	
@@ -978,13 +979,15 @@ public class ArrayProblems {
      * inclusive, which are divisible by 3,5 or 7
      * */
     public static int sumOfMultiples(int n) {
-    	int sum = 0;
+//    	int sum = 0;
+    	AtomicInteger atomic = new AtomicInteger(0);
     	for(int i=1; i<=n; i++) {
     		if(i%3==0 || i%5==0 || i%7==0) {
-    			sum += i;
+//    			sum += i;
+    			atomic.getAndAdd(i);
     		}
     	}
-    	return sum;
+    	return atomic.get();
     }
     
     
