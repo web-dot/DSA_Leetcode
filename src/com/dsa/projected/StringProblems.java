@@ -70,8 +70,42 @@ public class StringProblems {
 	}
 	
 	
+	/**
+	 * P2 : LC 557 : Reverse words in a string III
+	 * 
+	 * Given a string s, reverse the order of characters in each word within a 
+	 * sentence while still preserving whitespace and initial word order
+	 * 
+	 * God Ding -> doG gniD
+	 * 
+	 * */
+	public static String reverseWordsInString(String s) {
+		if(s.isEmpty()) {
+			return "";
+		}
+		StringBuilder sb = new StringBuilder();
+		String[] sarr = s.split(" ");
+		for(String str : sarr) {
+			char[] carr = str.toCharArray();
+			int left = 0;
+			int right = carr.length-1;
+			while(right > left) {
+				char temp = carr[left];
+				carr[left] = carr[right];
+				carr[right] = temp;
+				right--;
+				left++;
+			}
+			sb.append(carr);
+			sb.append(" ");
+		}
+		return sb.toString().trim();
+	}
+	
+	
 	
 	public static void main(String[] args) {
-		System.out.println(longestPalindrome("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"));
+		System.out.println(reverseWordsInString("hehhhhhhe"));
+//		System.out.println(longestPalindrome("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"));
 	}
 }
