@@ -16,7 +16,9 @@ public class StringProblems {
 	 * .3 "civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth" -> ranynar
 	 * 
 	 * */
-	public static String longestPalindrome(String s) {
+	
+	// approach 01 - the method takes lot of time for long strings
+	public static String longestPalindrome1(String s) {
 		if(s.isEmpty()) {
 			return "";
 		}
@@ -70,6 +72,34 @@ public class StringProblems {
 	}
 	
 	
+	// approach 02 -> assume each character as the center of the palindrome
+	
+	public static String longestPalindrome2(String s) {
+		int start = 0;
+		int end = 0;
+		
+		for(int i=0; i<s.length(); i++) {
+			int len1 = expandAroundCenter(s, i, i);
+			int len2 = expandAroundCenter(s, i, i+1);
+			int len = Math.max(len1, len2);
+			
+			if(len > (end - start)) {
+				start = i - (len-1) / 2;
+				end = i + len / 2;
+			}
+		}
+		return s.substring(start, end + 1);
+	}
+	
+	public static int expandAroundCenter(String inputString, int left, int right) {
+		while(left >= 0 && right < inputString.length() && (inputString.charAt(left) == inputString.charAt(right))) {
+			left--;
+			right++;
+		}
+		return right - left -1;
+	}
+	
+	
 	/**
 	 * P2 : LC 557 : Reverse words in a string III
 	 * 
@@ -105,7 +135,13 @@ public class StringProblems {
 	
 	
 	public static void main(String[] args) {
-		System.out.println(reverseWordsInString("hehhhhhhe"));
-//		System.out.println(longestPalindrome("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"));
+//		System.out.println(reverseWordsInString("hehhhhhhe"));
+
+		// problem 2
+		
+		
+		String str = "dsfrfskpadam";
+		System.out.println(longestPalindrome2(str));
+//		System.out.println(longestPalindrome1("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"));
 	}
 }
