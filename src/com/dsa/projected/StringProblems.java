@@ -1,8 +1,9 @@
 package com.dsa.projected;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class StringProblems {
 	
@@ -72,7 +73,12 @@ public class StringProblems {
 	}
 	
 	
-	// approach 02 -> assume each character as the center of the palindrome
+	/**
+	 * approach 02 -> assume each character as the center of the palindrome
+	 * 
+	 * Time Complexity - O(n^2)
+	 * Space Complexity - O(1)
+	 * */
 	
 	public static String longestPalindrome2(String s) {
 		int start = 0;
@@ -135,37 +141,37 @@ public class StringProblems {
 	
 	/**
 	 * P1 : LC 3 : Length of the longest substring without repeating chars
+	 * 
+	 * Time Complexity - O(n)
 	 * */
 	public static String longestSubstring(String s) {
-		if(s.isEmpty()) {
-			return "";
-		}
-		int start = 0;
-		int end = 0;
-		for(int i=0; i<s.length(); i++) {
-			int len = findLength(s, i, i+1);
-			
-			if(len > (end - start)) {
-				start = i;
-				end = i + len;
-			}
-		}
-		return s.substring(start, end+1);
-		
+	    int start = 0;
+	    int end = 0;
+	    int currentStart = 0;
+	    int maxLength = 0;
+	    Map<Character, Integer> currentIndexMap = new HashMap<>();
+	    
+	    for(int i=0; i<s.length(); i++) {
+	    	char c = s.charAt(i);
+	    	if(currentIndexMap.containsKey(c) && currentIndexMap.get(c) >= currentStart) {
+	    		currentStart = currentIndexMap.get(c) + 1;
+	    	}
+	    	currentIndexMap.put(c, i);
+	    	if(i - currentStart > maxLength) {
+	    		maxLength = i - currentStart;
+	    		start = currentStart;
+	    		end = i;
+	    	}
+	    }
+	    return s.substring(start, end + 1);
 	}
-	
-	public static int findLength(String inputString, int left, int right) {
-		while(right < inputString.length() && inputString.charAt(left) != inputString.charAt(right)) {
-			right++;
-		}
-		return right - left - 1;
-	}
+
 	
 	
 	public static void main(String[] args) {
 
 		// problem 1
-		String s = "au";
+		String s = "abcabcbb";
 		System.out.println(longestSubstring(s));
 		
 		// problem 2
