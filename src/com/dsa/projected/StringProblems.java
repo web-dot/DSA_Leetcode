@@ -7,7 +7,7 @@ import java.util.List;
 public class StringProblems {
 	
 	/**
-	 * P1: LC 5 : Longest Palindromic Substring
+	 * P2: LC 5 : Longest Palindromic Substring
 	 * 
 	 * Given a string s, return the longest palindromic substring in s
 	 * 
@@ -101,7 +101,7 @@ public class StringProblems {
 	
 	
 	/**
-	 * P2 : LC 557 : Reverse words in a string III
+	 * P3 : LC 557 : Reverse words in a string III
 	 * 
 	 * Given a string s, reverse the order of characters in each word within a 
 	 * sentence while still preserving whitespace and initial word order
@@ -133,15 +133,44 @@ public class StringProblems {
 	}
 	
 	
+	/**
+	 * P1 : LC 3 : Length of the longest substring without repeating chars
+	 * */
+	public static String longestSubstring(String s) {
+		if(s.isEmpty()) {
+			return "";
+		}
+		int start = 0;
+		int end = 0;
+		for(int i=0; i<s.length(); i++) {
+			int len = findLength(s, i, i+1);
+			
+			if(len > (end - start)) {
+				start = i;
+				end = i + len;
+			}
+		}
+		return s.substring(start, end+1);
+		
+	}
+	
+	public static int findLength(String inputString, int left, int right) {
+		while(right < inputString.length() && inputString.charAt(left) != inputString.charAt(right)) {
+			right++;
+		}
+		return right - left - 1;
+	}
+	
 	
 	public static void main(String[] args) {
-//		System.out.println(reverseWordsInString("hehhhhhhe"));
 
+		// problem 1
+		String s = "au";
+		System.out.println(longestSubstring(s));
+		
 		// problem 2
-		
-		
-		String str = "dsfrfskpadam";
-		System.out.println(longestPalindrome2(str));
+		String str = "abcabac";
+//		System.out.println(longestPalindrome2(str));
 //		System.out.println(longestPalindrome1("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"));
 	}
 }
