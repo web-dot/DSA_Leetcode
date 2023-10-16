@@ -475,8 +475,29 @@ public class StringProblems {
 	}
 	
 	/**
-	 * 
+	 * LC : ZigZag Conversion
 	 * */
+	public static String convert(String s, int numRows) {
+		// create array of string-builder to represent each row
+		StringBuilder[] rows = new StringBuilder[numRows];
+		for(int i=0; i<numRows; i++) {
+			rows[i] = new StringBuilder();
+		}
+		int currentRow = 0;
+		boolean goingDown = false;
+		
+		// iterate through the characters and assign them to the rows
+		for(char c : s.toCharArray()) {
+			rows[currentRow].append(c);
+			if(currentRow == 0 || currentRow == numRows - 1) {
+				goingDown = !goingDown;
+			}
+			currentRow += goingDown ? 1 : -1;
+		}
+		
+		
+		
+	}
 	
 
 	public static void main(String[] args) {
