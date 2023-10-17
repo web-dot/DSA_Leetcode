@@ -165,6 +165,14 @@ public class StringProblems {
 	    }
 	    return s.substring(start, end + 1);
 	}
+	
+	
+	/**
+	 * P11 : LC 242 : Given two strings, return true if they are anagrams else false
+	 * */
+	public static boolean isAnagram(String s, String t){
+		return false;
+	}
 
 	
 	
