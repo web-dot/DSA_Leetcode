@@ -477,7 +477,7 @@ public class StringProblems {
 	/**
 	 * LC : ZigZag Conversion
 	 * */
-	public static String convert(String s, int numRows) {
+	public static String convertToZigZag(String s, int numRows) {
 		// create array of string-builder to represent each row
 		StringBuilder[] rows = new StringBuilder[numRows];
 		for(int i=0; i<numRows; i++) {
@@ -495,16 +495,27 @@ public class StringProblems {
 			currentRow += goingDown ? 1 : -1;
 		}
 		
+		StringBuilder result = new StringBuilder();
+		for(StringBuilder row : rows) {
+			result.append(row);
+		}
+		
+		return result.toString();
 		
 		
 	}
 	
 
 	public static void main(String[] args) {
-
-		String s2 = "abcabcbb";
-		System.out.println(replaceVowels("Code"));
-
+		
+		String s = "PAYPALISHIRING";
+		int nomRows = 3;
+		
+		String zigzag = convertToZigZag(s, nomRows);
+		System.out.println(zigzag);
+		
+		
+		
 		/**
 		 * Exponent start-goal test cases String start1 = "lhicl"; String goal1 =
 		 * "chill";
