@@ -505,16 +505,65 @@ public class StringProblems {
 		
 	}
 	
+	
+	/**
+	 * PROBLEMS : LEVEL 1
+	 * 
+	 * 
+	 * 1. reverse words in a given string
+	 * 2. longest common prefix
+	 * 3. roman number to integer
+	 * 4. integer to roman
+	 * 5. closest strings
+	 * 6. divisible by 7
+	 * 7. encrypt the string 2
+	 * 8. 
+	 * */
+	
+	
+	/**
+	 * Given a set of strings find the longest common prefix
+	 * 
+	 * {geeksforgeeks, geezer, geek}
+	 * 
+	 * 1. get the string with the smallest length
+	 * 2. loop over the array and check if every other string contains the smallest string
+	 * 3. if yes, then the smallest string is the longest common prefix
+	 * 4. if not, keep removing one one letter from the smllest string and compare with other strings
+	 * 5. once the substring of the smallest string that is present in all the other strings is found, return
+	 * */
+	public static String longestCommonPrefix(List<String> arr) {
+		// [mango, manage, manager]
+		if(arr.isEmpty() || arr == null) {
+			return "";
+		}
+		String prefix = arr.get(0); // assume the first string in the array as the longest prefix
+		for(int i=1; i<arr.size(); i++) {	// starts loop for each string, str in array
+			// unless the str.indexOf(prefix) returns 0, keeps chopping of one one character
+			// if str.indexOf(prefix) is 0, then moves to next string to check the same
+			// this continues either the common prefix is found or the prefix is empty
+			while(arr.get(i).indexOf(prefix) != 0) { 
+				prefix = prefix.substring(0, prefix.length()-1);
+				if(prefix.isEmpty()) {
+					return "";
+				}
+			}
+		}
+		// once the control exits for, means the longest common prefix is found, and returns
+		return prefix;
+	}
 
 	public static void main(String[] args) {
+
+		List<String> array = Arrays.asList("manage", "mango", "maager");
+		System.out.println(longestCommonPrefix(array));
 		
-		String s = "PAYPALISHIRING";
-		int nomRows = 3;
-		
-		String zigzag = convertToZigZag(s, nomRows);
-		System.out.println(zigzag);
-		
-		
+//		String s = "PAYPALISHIRING";
+//		int nomRows = 3;
+//		
+//		String zigzag = convertToZigZag(s, nomRows);
+//		System.out.println(zigzag);
+
 		
 		/**
 		 * Exponent start-goal test cases String start1 = "lhicl"; String goal1 =
