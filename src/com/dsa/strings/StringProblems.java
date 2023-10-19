@@ -459,20 +459,20 @@ public class StringProblems {
 	/**
 	 * REPLACE VOWELS IN A STRING
 	 * */
-	private static final String VOWEL_STRING = "aeiou";
-	public static String replaceVowels(String str) {
-		if(str.isEmpty()) {
-			return "";
-		}
-		char[] carr = str.toCharArray();
-		for(int i=0; i<carr.length; i++) {
-			char ch = carr[i];
-			if(VOWEL_STRING.contains(String.valueOf(ch))) {
-				str = str.replace(String.valueOf(ch), ""); 
-			}
-		}
-		return str;
-	}
+//	private static final String VOWEL_STRING = "aeiou";
+//	public static String replaceVowels(String str) {
+//		if(str.isEmpty()) {
+//			return "";
+//		}
+//		char[] carr = str.toCharArray();
+//		for(int i=0; i<carr.length; i++) {
+//			char ch = carr[i];
+//			if(VOWEL_STRING.contains(String.valueOf(ch))) {
+//				str = str.replace(String.valueOf(ch), ""); 
+//			}
+//		}
+//		return str;
+//	}
 	
 	/**
 	 * LC : ZigZag Conversion
@@ -524,13 +524,8 @@ public class StringProblems {
 	/**
 	 * Given a set of strings find the longest common prefix
 	 * 
-	 * {geeksforgeeks, geezer, geek}
+	 * {geeksforgeeks, geezer, geek} -> "gee"
 	 * 
-	 * 1. get the string with the smallest length
-	 * 2. loop over the array and check if every other string contains the smallest string
-	 * 3. if yes, then the smallest string is the longest common prefix
-	 * 4. if not, keep removing one one letter from the smllest string and compare with other strings
-	 * 5. once the substring of the smallest string that is present in all the other strings is found, return
 	 * */
 	public static String longestCommonPrefix(List<String> arr) {
 		// [mango, manage, manager]
@@ -552,11 +547,30 @@ public class StringProblems {
 		// once the control exits for, means the longest common prefix is found, and returns
 		return prefix;
 	}
+	
+	
+	/**
+	 * replace vowels in a string
+	 * */
+	public static final String VOWEL_STRING = "aeiou";
+	public static String replaceVowels(String s) {
+		char[] carr = s.toCharArray();
+		for(int i=0; i<carr.length; i++) {
+			char c = carr[i];
+			if(VOWEL_STRING.contains(String.valueOf(c))) {
+				s = s.replace(String.valueOf(c), "");
+			}
+		}
+		return s;
+	}
+	
 
 	public static void main(String[] args) {
 
-		List<String> array = Arrays.asList("manage", "mango", "maager");
-		System.out.println(longestCommonPrefix(array));
+		System.out.println(replaceVowels("mankind"));
+		
+//		List<String> array = Arrays.asList("manage", "mango", "maager");
+//		System.out.println(longestCommonPrefix(array));
 		
 //		String s = "PAYPALISHIRING";
 //		int nomRows = 3;
