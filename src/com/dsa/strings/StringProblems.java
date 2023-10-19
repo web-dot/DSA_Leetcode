@@ -414,8 +414,6 @@ public class StringProblems {
 	}
 	
 	
-	
-	
 	public static boolean hasUniqueCharacters(String s, int start, int end) {
 		Set<Character> set = new HashSet<>();
 		for(int i=start; i<=end; i++) {
@@ -429,7 +427,9 @@ public class StringProblems {
 	}
 	
 	
-	
+	/**
+	 * Length of longest substring without repeating characters
+	 * */
 	
 	public static int lengthOfLongestSubstring(String s) {
 		Set<Character> set = new HashSet<>();
@@ -564,10 +564,27 @@ public class StringProblems {
 		return s;
 	}
 	
+	/**
+	 * check whether a string has unique characters
+	 * */
+	public static boolean uniqueCharString(String s) {
+		Set<Character> set = new HashSet<>();
+		for(int i=0; i<s.length(); i++) {
+			char c = s.charAt(i);
+			if(set.contains(c)) {
+				return false;
+			}
+			set.add(c);
+		}
+		return true;
+	}
+	
 
 	public static void main(String[] args) {
 
-		System.out.println(replaceVowels("mankind"));
+		System.out.println(uniqueCharString("code"));
+		
+//		System.out.println(replaceVowels("mankind"));
 		
 //		List<String> array = Arrays.asList("manage", "mango", "maager");
 //		System.out.println(longestCommonPrefix(array));
