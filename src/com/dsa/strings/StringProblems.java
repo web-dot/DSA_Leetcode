@@ -414,8 +414,6 @@ public class StringProblems {
 	}
 	
 	
-	
-	
 	public static boolean hasUniqueCharacters(String s, int start, int end) {
 		Set<Character> set = new HashSet<>();
 		for(int i=start; i<=end; i++) {
@@ -429,7 +427,9 @@ public class StringProblems {
 	}
 	
 	
-	
+	/**
+	 * Length of longest substring without repeating characters
+	 * */
 	
 	public static int lengthOfLongestSubstring(String s) {
 		Set<Character> set = new HashSet<>();
@@ -459,25 +459,25 @@ public class StringProblems {
 	/**
 	 * REPLACE VOWELS IN A STRING
 	 * */
-	private static final String VOWEL_STRING = "aeiou";
-	public static String replaceVowels(String str) {
-		if(str.isEmpty()) {
-			return "";
-		}
-		char[] carr = str.toCharArray();
-		for(int i=0; i<carr.length; i++) {
-			char ch = carr[i];
-			if(VOWEL_STRING.contains(String.valueOf(ch))) {
-				str = str.replace(String.valueOf(ch), ""); 
-			}
-		}
-		return str;
-	}
+//	private static final String VOWEL_STRING = "aeiou";
+//	public static String replaceVowels(String str) {
+//		if(str.isEmpty()) {
+//			return "";
+//		}
+//		char[] carr = str.toCharArray();
+//		for(int i=0; i<carr.length; i++) {
+//			char ch = carr[i];
+//			if(VOWEL_STRING.contains(String.valueOf(ch))) {
+//				str = str.replace(String.valueOf(ch), ""); 
+//			}
+//		}
+//		return str;
+//	}
 	
 	/**
 	 * LC : ZigZag Conversion
 	 * */
-	public static String convert(String s, int numRows) {
+	public static String convertToZigZag(String s, int numRows) {
 		// create array of string-builder to represent each row
 		StringBuilder[] rows = new StringBuilder[numRows];
 		for(int i=0; i<numRows; i++) {
@@ -502,12 +502,97 @@ public class StringProblems {
 		return result.toString();
 	}
 	
+	
+	/**
+	 * PROBLEMS : LEVEL 1
+	 * 
+	 * 
+	 * 1. reverse words in a given string
+	 * 2. longest common prefix
+	 * 3. roman number to integer
+	 * 4. integer to roman
+	 * 5. closest strings
+	 * 6. divisible by 7
+	 * 7. encrypt the string 2
+	 * 8. 
+	 * */
+	
+	
+	/**
+	 * Given a set of strings find the longest common prefix
+	 * 
+	 * {geeksforgeeks, geezer, geek} -> "gee"
+	 * 
+	 * */
+	public static String longestCommonPrefix(List<String> arr) {
+		// [mango, manage, manager]
+		if(arr.isEmpty() || arr == null) {
+			return "";
+		}
+		String prefix = arr.get(0); // assume the first string in the array as the longest prefix
+		for(int i=1; i<arr.size(); i++) {	// starts loop for each string, str in array
+			// unless the str.indexOf(prefix) returns 0, keeps chopping of one one character
+			// if str.indexOf(prefix) is 0, then moves to next string to check the same
+			// this continues either the common prefix is found or the prefix is empty
+			while(arr.get(i).indexOf(prefix) != 0) { 
+				prefix = prefix.substring(0, prefix.length()-1);
+				if(prefix.isEmpty()) {
+					return "";
+				}
+			}
+		}
+		// once the control exits for, means the longest common prefix is found, and returns
+		return prefix;
+	}
+	
+	
+	/**
+	 * replace vowels in a string
+	 * */
+	public static final String VOWEL_STRING = "aeiou";
+	public static String replaceVowels(String s) {
+		char[] carr = s.toCharArray();
+		for(int i=0; i<carr.length; i++) {
+			char c = carr[i];
+			if(VOWEL_STRING.contains(String.valueOf(c))) {
+				s = s.replace(String.valueOf(c), "");
+			}
+		}
+		return s;
+	}
+	
+	/**
+	 * check whether a string has unique characters
+	 * */
+	public static boolean uniqueCharString(String s) {
+		Set<Character> set = new HashSet<>();
+		for(int i=0; i<s.length(); i++) {
+			char c = s.charAt(i);
+			if(set.contains(c)) {
+				return false;
+			}
+			set.add(c);
+		}
+		return true;
+	}
+	
 
 	public static void main(String[] args) {
 
-		String s2 = "abcabcbb";
-		System.out.println(replaceVowels("Code"));
+		System.out.println(uniqueCharString("code"));
+		
+//		System.out.println(replaceVowels("mankind"));
+		
+//		List<String> array = Arrays.asList("manage", "mango", "maager");
+//		System.out.println(longestCommonPrefix(array));
+		
+//		String s = "PAYPALISHIRING";
+//		int nomRows = 3;
+//		
+//		String zigzag = convertToZigZag(s, nomRows);
+//		System.out.println(zigzag);
 
+		
 		/**
 		 * Exponent start-goal test cases String start1 = "lhicl"; String goal1 =
 		 * "chill";
