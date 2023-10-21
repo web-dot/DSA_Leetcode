@@ -169,22 +169,51 @@ public class StringProblems {
 	
 	/**
 	 * P11 : LC 242 : Given two strings, return true if they are anagrams else false
+	 * 
 	 * */
-	public static boolean isAnagram(String s, String t){
-		return false;
+	public static boolean isAnagram(String s1, String s2){
+		s1 = s1.replaceAll("[^a-zA-Z]", "").toLowerCase();
+		s2 = s2.replaceAll("[^a-zA-Z]", "").toLowerCase();
+		if(s1.length() != s2.length()) {
+			return false;
+		}
+		
+		Map<Character, Integer> charCount1 = new HashMap<>();
+		Map<Character, Integer> charCount2 = new HashMap<>();
+		
+		for(char c : s1.toCharArray()) {
+			charCount1.compute(c, (key, value) -> value == null ? 1 : value + 1);
+		}
+		
+		for(char c : s2.toCharArray()) {
+			charCount2.compute(c, (key, value) -> value == null ? 1 : value + 1);
+		}
+		
+		return charCount1.equals(charCount2);
 	}
 
 	
 	
 	public static void main(String[] args) {
 
-		// problem 1
-		String s = "abcabcbb";
-		System.out.println(longestSubstring(s));
+		//P11
+		String a1 = "ab";
+		String a2 = "ba";
+		System.out.println(isAnagram(a1, a2));
 		
-		// problem 2
-		String str = "abcabac";
+		// P2
+//		String str = "abcabac";
 //		System.out.println(longestPalindrome2(str));
 //		System.out.println(longestPalindrome1("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"));
+
+		
+		
+		// P1
+//		String s = "abcabcbb";
+//		System.out.println(longestSubstring(s));
+		
+		
+		
+		
 	}
 }
