@@ -494,9 +494,12 @@ public class StringProblems {
 			}
 			currentRow += goingDown ? 1 : -1;
 		}
-		
-		
-		
+		//concatenate the rows to get the final result
+		StringBuilder result = new StringBuilder();
+		for(StringBuilder row : rows) {
+			result.append(row);
+		}
+		return result.toString();
 	}
 	
 
