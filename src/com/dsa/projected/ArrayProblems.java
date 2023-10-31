@@ -10,20 +10,25 @@ public class ArrayProblems {
 	
 	// must do this in place without making copy of array
 	public static void moveZeros(int[] nums) {
-		// [0,1,3,0] -> [1,3,0,0,]
-		int k =0;
-		for(int i=0; i<nums.length; i++) {
-			if(nums[i] != 0) {
-				int temp = nums[i];
+		int read = 0;
+		int write = 0;
+		while(read < nums.length) {
+			if(nums[read] != 0) {
+				nums[write] = nums[read];
+				write++;
 			}
+			read++;
+		}
+		for(int i=write; i<nums.length; i++) {
+			nums[i] = 0;
 		}
 	}
 	
 	
 	
 	public static void main(String[] args) {
-		int[] arr = new int[]  {0,1,0,3,12};
-		int[] rarr = moveZeros(arr);
-		System.out.println(Arrays.toString(rarr));
+		int[] arr = new int[]  {0,1,3,0};
+		moveZeros(arr);
+		System.out.println(Arrays.toString(arr));
 	}
 }
