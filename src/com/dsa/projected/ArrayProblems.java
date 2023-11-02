@@ -42,7 +42,7 @@ public class ArrayProblems {
 	
 	// 3. Given an integer array, return largest sum of non-adjacent numbers
 	public static int nonAdjLargestSum(int[] nums) {
-		if(nums.length < 0) {
+		if(nums.length == 0) {
 			return 0;
 		}
 		if(nums.length == 1) {
@@ -52,7 +52,6 @@ public class ArrayProblems {
 		dp[0] = nums[0];
 		dp[1] = Math.max(nums[0], nums[1]);
 		for(int i=2; i<nums.length; i++) {
-			System.out.println(Arrays.toString(dp));
 			int option1 = nums[i] + dp[i-2];
 			int option2 = dp[i-1];
 			dp[i] = Math.max(option1, option2);
