@@ -31,7 +31,6 @@ public class CodingStringProblems {
 		for(int i=0; i<s.length(); i++) {
 			countMap.compute(i, (k, v) -> v == null ? 1 : v + 1);
 		}
-		System.out.println(countMap);
 		int index = -1;
 		for(Map.Entry<Integer, Integer> entry : countMap.entrySet()) {
 			if(entry.getValue() == 1) {

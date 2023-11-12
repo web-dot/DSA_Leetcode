@@ -59,16 +59,31 @@ public class ArrayProblems {
 		return dp[dp.length-1];
 	}
 	
+	
+	// p4 given an integer array return an array nums that is a concat of nums with itself
+	public static int[] getConcatenation(int[] nums) {
+		int[] ans = new int[2*nums.length];
+		int n = nums.length;
+		for(int i=0; i<nums.length; i++) {
+			ans[i] = nums[i];
+			ans[i+n] = nums[i];
+		}
+		return ans;
+	}
+	
 	public static void main(String[] args) {
 		
+		int[] nums = new int[] {1,2,1};
+		System.out.println(Arrays.toString(getConcatenation(nums)));
+		
 		// p3
-		int[] nums = {0};
-		System.out.println(nonAdjLargestSum(nums));
+//		int[] nums = {0};
+//		System.out.println(nonAdjLargestSum(nums));
 		
 		// p1 and p2
-		int[] arr = new int[]  {12,0,13,0,2,0,3,0};
-		moveZerosRight(arr);
-		System.out.println(Arrays.toString(arr));
+//		int[] arr = new int[]  {12,0,13,0,2,0,3,0};
+//		moveZerosRight(arr);
+//		System.out.println(Arrays.toString(arr));
 		
 	}
 }
