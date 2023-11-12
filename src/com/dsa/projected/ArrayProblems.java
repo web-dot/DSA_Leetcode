@@ -71,10 +71,40 @@ public class ArrayProblems {
 		return ans;
 	}
 	
+	
+	// given an array nums consisting of 2n elements in the form [x1,x2...,]
+	// return the array in the form [x1,y1,x2,y2]
+	// input = [2,5,1,3,4,7], n=3
+	// output = [2,3,5,4,1,7]
+	public static int[] shuffle(int[] nums, int n) {
+		int[] result = new int[2*n];
+		int index = 0;
+		for(int i=0; i<n; i++) {
+			result[index++] = nums[i];
+			result[index++] = nums[i + n];
+		}
+		return result;
+	}
+	
+	// given unsorted integer array, return the smallest positive integer
+	public static int smallestPositive(int[] nums) {
+		Arrays.sort(nums);
+		int x = nums[0];
+		for(int i=0; i<nums.length; i++) {
+			if(nums[i] < x) {
+				x = nums[i];
+			}
+		}
+		return x;
+	}
+	
 	public static void main(String[] args) {
 		
-		int[] nums = new int[] {1,2,1};
-		System.out.println(Arrays.toString(getConcatenation(nums)));
+		System.out.println(smallestPositive(new int[] {2,1,4,3}));
+		
+		
+//		int[] nums = new int[] {1,2,1};
+//		System.out.println(Arrays.toString(getConcatenation(nums)));
 		
 		// p3
 //		int[] nums = {0};
