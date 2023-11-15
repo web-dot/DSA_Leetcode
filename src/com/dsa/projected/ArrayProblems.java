@@ -1,6 +1,8 @@
 package com.dsa.projected;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ArrayProblems {
 	
@@ -98,9 +100,43 @@ public class ArrayProblems {
 		return x;
 	}
 	
+	// given an int array `nums` and an integer `target`, return indices of two numbers
+	// such that they add up to the target
+	// nums = [2,7,11,15], target = 9
+	// out = [0,1]
+	// time complexity - O(n), space-complexity - O(n)
+	public static int[] twoSum(int[] nums, int target) {
+		Map<Integer, Integer> complementMap = new HashMap<>();
+		for(int i=0; i<nums.length; i++) {
+			int complement = target - nums[i];
+			if(complementMap.containsKey(complement)) {
+				return new int[] {complementMap.get(complement), i};
+			}
+			complementMap.put(nums[i], i);
+		}
+		throw new IllegalArgumentException();
+	}
+	
+	// given an integer array, find the subarray with the largest sum, and return the
+	// sum
+	public static int maxSubArray(int[] nums) {
+		if(nums.length == 1) {
+			return nums[0];
+		}
+		int currentSum = nums[0];
+		int maxSum = nums[0];
+		for(int i=0; i<nums.length; i++) {
+			currentSum = Math.max(nums[i], currentSum + nums[i]);
+			maxSum = Math.max(maxSum, currentSum);
+		}
+		return maxSum;
+	}
+	
 	public static void main(String[] args) {
+
 		
-		System.out.println(smallestPositive(new int[] {2,1,4,3}));
+		
+//		System.out.println(smallestPositive(new int[] {2,1,4,3}));
 		
 		
 //		int[] nums = new int[] {1,2,1};
