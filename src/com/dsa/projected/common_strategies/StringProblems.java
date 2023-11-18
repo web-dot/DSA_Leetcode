@@ -1,6 +1,10 @@
 package com.dsa.projected.common_strategies;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 1. two pointers
@@ -18,7 +22,7 @@ import java.util.Arrays;
 
 public class StringProblems {
 
-	//kadens algorithm
+	// kaden's algorithm
 	// max sum contiguous subarray
 	public static int maxSumSubArray(int[] nums) {
 		if(nums.length == 1) {
@@ -61,9 +65,27 @@ public class StringProblems {
 		return result;
 	}
 	
+	// sorting
+	// given an array of strings strs, group the anagrams together.
+	public static List<List<String>> groupAnagrams(String[] strs){
+		Map<String, List<String>> anagramMap = new HashMap<>();
+		for(String str : strs) {
+			char[] carr = str.toCharArray();
+			Arrays.sort(carr);
+			String key = new String(carr);
+			anagramMap.compute(key, (k, v) -> (v == null) ? new ArrayList<>() : v).add(str);
+		}
+		return new ArrayList<>(anagramMap.values());
+	} 
+	
+	
 	public static void main(String[] args) {
-		System.out.println(Arrays.toString(getSetBits(5)));
+		System.out.println(groupAnagrams(new String[] {"eat","tea","tan","ate","nat","bat"}));
+//		System.out.println(Arrays.toString(getSetBits(5)));
 //		System.out.println(countSetBits(10));
 //		System.out.println(maxSumSubArray(new int[] {5,4,-1,7,8}));
 	}
 }
+
+
+
