@@ -19,9 +19,12 @@ public class StringProblems {
 	//kadens algorithm
 	// max sum contiguous subarray
 	public static int maxSumSubArray(int[] nums) {
+		if(nums.length == 1) {
+			return nums[0];
+		}
 		int currentSum = nums[0];
 		int maxSum = nums[0];
-		for(int i=0; i<nums.length; i++) {
+		for(int i=1; i<nums.length; i++) {
 			currentSum = Math.max(nums[i], currentSum + nums[i]);
 			maxSum = Math.max(maxSum, currentSum);
 		}
@@ -29,6 +32,6 @@ public class StringProblems {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println();
+		System.out.println(maxSumSubArray(new int[] {5,4,-1,7,8}));
 	}
 }
