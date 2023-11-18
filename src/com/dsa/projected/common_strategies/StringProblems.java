@@ -1,5 +1,7 @@
 package com.dsa.projected.common_strategies;
 
+import java.util.Arrays;
+
 /**
  * 1. two pointers
  * 2. sliding window
@@ -31,7 +33,37 @@ public class StringProblems {
 		return maxSum;
 	}
 	
+	// brian kernighan's algorithm
+	// given a non-negetive integer, count the number of set bits
+	public static int countSetBits(int n) {
+		//  8 4 2 1
+		//  1 0 1 0
+		int count = 0;
+		while(n != 0) {
+			n = n & (n-1);
+			count++;
+		}
+		return count;
+	}
+	
+	// getting array of the set bits
+	public static int[] getSetBits(int n) {
+		int[] result = new int[n+1];
+		for(int i=0; i<=n; i++) {
+			int num = i;
+			int count = 0;
+			while(num != 0) {
+				num = num & (num-1);
+				count++;
+			}
+			result[i] = count;
+		}
+		return result;
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(maxSumSubArray(new int[] {5,4,-1,7,8}));
+		System.out.println(Arrays.toString(getSetBits(5)));
+//		System.out.println(countSetBits(10));
+//		System.out.println(maxSumSubArray(new int[] {5,4,-1,7,8}));
 	}
 }
