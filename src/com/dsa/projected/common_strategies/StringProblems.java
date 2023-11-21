@@ -78,9 +78,40 @@ public class StringProblems {
 		return new ArrayList<>(anagramMap.values());
 	} 
 	
+//	 dynamic programming
+//	 longest common sub-sequence:
+//	 given two strings, txt1 and txt2, return length of longest subsequence
+/**
+ * 1. create a 2d table `dp` where dp[i][j] represents the length of the LCS of the 
+ * first i characters of sequence X and the first j characters of sequence Y
+ * 
+ * 2. For each i from 1 to m(length of X) and each j from 1 to n(length of Y) :
+ * 		if X[i-1] is equal to Y[j-1], then dp[i][j] = dp[i-1][j-1]+1
+ * 		otherwise dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+ * 
+ * The length of the LCS is given by dp[m][n], where m and n are the lengths of the
+ * sequences X and Y, respectively
+ * */	
+	public static int longestCommonSubsequence(String text1, String text2) {
+		int[][] dp = new int[text1.length()+1][text2.length()+1];
+		// Filling in the table
+		for(int i=1; i<=text1.length(); i++){
+			for(int j=1; j<=text2.length(); j++) {
+				if(text1.charAt(i - 1) == text2.charAt(j - 1)) {
+					dp[i][j] = dp[i-1][j-1]+1;
+				}
+				else {
+					dp[i][j] = Math.max(dp[i - 1][j], dp[i][j-1]);
+				}
+			}
+		}
+		return dp[text1.length()][text2.length()];
+	}
+	
 	
 	public static void main(String[] args) {
-		System.out.println(groupAnagrams(new String[] {"eat","tea","tan","ate","nat","bat"}));
+		System.out.println(longestCommonSubsequence("abcde", "ace"));
+//		System.out.println(groupAnagrams(new String[] {"eat","tea","tan","ate","nat","bat"}));
 //		System.out.println(Arrays.toString(getSetBits(5)));
 //		System.out.println(countSetBits(10));
 //		System.out.println(maxSumSubArray(new int[] {5,4,-1,7,8}));
