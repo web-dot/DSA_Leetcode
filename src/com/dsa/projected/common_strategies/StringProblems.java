@@ -108,6 +108,29 @@ public class StringProblems {
 		return dp[text1.length()][text2.length()];
 	}
 	
+	// Greedy algorithm :
+	// a greedy algorithm makes the best possible decision at each step,
+	// hoping that this will lead to the overall best solution
+	
+	/**
+	 * problem : coin change problem: given a set of coin denominations and a target amount,
+	 * find the number of coins needed to make up that amount
+	 * approach: to pick the largest coin that is smaller than the remaining amount at each step.
+	 * 
+	 * consider the coin denominations{1,5,10,25} and the target amount is 30
+	 * 
+	 * 1. select the largest coin(25) that is smaller than the remaining amount(30). Subtract
+	 * 25 from 30, and the remaining amount is now 5.
+	 * 2. select the largest coin(5) that is smaller than the remaining amount(5). subtract 5 from
+	 * 5, and the remaining amount is now 0.
+	 * 
+	 * The chosen coins are 25 and 5, and the total number of coins is 2. This is the optimal solution
+	 * in this case.
+	 * */
+	
+	
+	
+	
 	
 	public static void main(String[] args) {
 		System.out.println(longestCommonSubsequence("abcde", "ace"));
