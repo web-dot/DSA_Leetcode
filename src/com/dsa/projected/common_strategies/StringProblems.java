@@ -2,9 +2,11 @@ package com.dsa.projected.common_strategies;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 /**
  * 1. two pointers
@@ -113,7 +115,7 @@ public class StringProblems {
 	// hoping that this will lead to the overall best solution
 	
 	/**
-	 * problem : coin change problem: given a set of coin denominations and a target amount,
+	 * classic problem : coin change problem: given a set of coin denominations and a target amount,
 	 * find the number of coins needed to make up that amount
 	 * approach: to pick the largest coin that is smaller than the remaining amount at each step.
 	 * 
@@ -128,6 +130,40 @@ public class StringProblems {
 	 * in this case.
 	 * */
 	
+	// given a string s, rearrange the characters of s so that any two adjacent characters are
+	// not the same
+	public static String reorganizeString(String s) {
+		// step1 : count the frequency of each character
+		Map<Character, Integer> freqMap = new HashMap<>();
+		for(char ch:s.toCharArray()) {
+			freqMap.compute(ch, (k, v) -> v == null ? 1 : v + 1);
+		}
+		
+		// step2: create max heap using a priority-queue ans a custom comparator
+		PriorityQueue<Character> maxHeap = new PriorityQueue<>(
+                Comparator.<Character, Integer>comparing(freqMap::get).reversed()
+        );
+		
+		// step3: build the rearranged string
+		StringBuilder result = new StringBuilder();
+		
+		// add all character to the max heap
+		maxHeap.addAll(freqMap.keySet());
+		
+		while(!maxHeap.isEmpty()) {
+			char current = maxHeap.poll(); // get the character with highest frequency
+			result.append(current);
+			
+			// update the freq map
+			freqMap.put(current, freqMap.get(current) - 1);
+			
+			// if there are still occurances left, add the character back to the max-heap
+			if(freqMap.get(current) > 0) {
+				maxHeap.add(current);
+			}
+		}
+		return result.toString();
+	}
 	
 	
 	
