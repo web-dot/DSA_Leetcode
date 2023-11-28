@@ -165,6 +165,17 @@ public class StringProblems {
 		return result.toString();
 	}
 	
+	// greedy algorithm - example 2
+	// suppose you have set of activities with start and end time. the goal is to select 
+	// maximum number of non-overlapping activities
+	/**
+	 * step1: sort the activities based on their end times
+	 * step2: select the first activity
+	 * step3: for each remaining activity, choose it if its start time is greater than or
+	 * equal to the end time of the previously selected activity.
+	 *  
+	 * */
+	
 	
 	
 	
