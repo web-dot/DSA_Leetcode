@@ -2,6 +2,7 @@ package com.dsa.projected.common_strategies;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -175,16 +176,51 @@ public class StringProblems {
 	 * equal to the end time of the previously selected activity.
 	 *  
 	 * */
+	public static List<Activity> selectActivities(List<Activity> activities){
+		List<Activity> selectedActivities = new ArrayList<>();
+		//step1: first step is to sort the finish time in ascending order
+		Collections.sort(activities, Comparator.comparingInt(activity -> activity.end));
+		System.out.println(activities);
+		//step2: select activities using a greedy approach
+		Activity lastSelected = null;
+		for(Activity currentActivity : activities) {
+			if(lastSelected == null || currentActivity.start >= lastSelected.end) {
+				// include the current activity in the selection
+				selectedActivities.add(currentActivity);
+				lastSelected = currentActivity;
+			}
+		}
+		return selectedActivities;
+	}
 	
 	
 	
 	
 	public static void main(String[] args) {
-		System.out.println(longestCommonSubsequence("abcde", "ace"));
+		List<Activity> list = Arrays.asList(new Activity("Homework", 2, 5), new Activity("Presentation", 6, 10), new Activity("Term Paper", 4, 8),
+				new Activity("Play Time", 10, 12), new Activity("Math Class", 13, 14), new Activity("Hangout", 7, 15));
+		List<Activity> selectedActivities = selectActivities(list);
+		System.out.println(selectedActivities);
+//		System.out.println(longestCommonSubsequence("abcde", "ace"));
 //		System.out.println(groupAnagrams(new String[] {"eat","tea","tan","ate","nat","bat"}));
 //		System.out.println(Arrays.toString(getSetBits(5)));
 //		System.out.println(countSetBits(10));
 //		System.out.println(maxSumSubArray(new int[] {5,4,-1,7,8}));
+	}
+}
+
+class Activity{
+	String task;
+	int start;
+	int end;
+	public Activity(String task, int start, int end) {
+		this.task = task;
+		this.start = start;
+		this.end = end;
+	}
+	@Override
+	public String toString() {
+		return "Activity [task=" + task + ", start=" + start + ", end=" + end + "]";
 	}
 }
 
