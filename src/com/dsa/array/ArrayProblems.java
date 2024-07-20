@@ -990,10 +990,51 @@ public class ArrayProblems {
     	return atomic.get();
     }
     
+    // concat array - [1,2,1] -> [1,2,1,1,2,1]
     
     
-
+    // longest increasing sub-sequence - given a array return the length of the longest
+    // increasing subsequence
+    public static int lengthOfLIS(int[] nums) {
+    	
+    	return -1;
+    }
+    
+    public static int[] concatArr(int[] arr) {
+    	if(arr.length == 0) {
+    		return arr;
+    	}
+    	int[] concatArr = new int[2*arr.length];
+    	for(int i=0; i<arr.length; i++) {
+    		concatArr[i] = arr[i];
+    		concatArr[i+arr.length] = arr[i];
+    	}
+    	return concatArr;
+    }
+    
+    // array from permutation
+    public static int[] arrFromPerm(int[] nums) {
+    	int[] arr = new int[nums.length];
+    	for(int i=0; i<nums.length; i++) {
+    		int x = nums[i];
+    		arr[i] = nums[x];
+    	}
+    	return arr;
+    }
+    
+    // find minimum operations to make all items divisible by 3
+    public static int findMinOps(int[] nums) {
+    	int count = 0;
+    	for(int i=0; i<nums.length; i++) {
+    		if(nums[i] % 3 != 0) {
+    			count++;
+    		}
+    	}
+    	return count;
+    }
+    
 	public static void main(String[] args) {
-		System.out.println(sumOfMultiples(10));
+		int[] nums = {1,2,3,4};
+		System.out.println(findMinOps(nums));
  	}
 }
