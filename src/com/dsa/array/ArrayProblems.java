@@ -1033,8 +1033,31 @@ public class ArrayProblems {
     	return count;
     }
     
+    
+    //plus one - 66
+    public static int[] plusOne(int[] digits) {
+    	int lastIndex = digits.length - 1;
+    	int lastItem = digits[lastIndex];
+    	int[] result = new int[digits.length];
+
+    	int sumLast = lastItem + 1;
+    	if((sumLast % 10) > 0) {    		
+    		result = digits;
+    		result[lastIndex] = sumLast;
+    	}else {
+    		result = new int[digits.length + 1];
+    		for(int i = 0; i <= digits.length - 2; i++) {
+    			result[i] = digits[i];
+    		}
+    		result[result.length - 2] = 1;
+    		result[result.length - 1] = 0;
+    	}
+    	return result;
+    }
+    
+
 	public static void main(String[] args) {
-		int[] nums = {1,2,3,4};
-		System.out.println(findMinOps(nums));
+		int[] arr = {1,2,4};
+ 		System.out.println(Arrays.toString(plusOne(arr)));
  	}
 }
